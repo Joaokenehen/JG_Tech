@@ -4,13 +4,14 @@ export default function App() {
   const links = [
     {
       name: 'Orçamento via WhatsApp',
-      url: 'https://wa.me/5544997025387', // 👈 Substitua pelo seu número
+      url: 'https://wa.me/5544997025387',
       icon: <MessageCircle className="w-6 h-6" />,
       color: 'bg-green-600 hover:bg-green-500'
     },
     {
       name: 'Meu LinkedIn Profissional',
-      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen//', // 👈 Substitua pelo seu link
+      // URL corrigida sem as barras duplas e sem acentos
+      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen', 
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-blue-700 hover:bg-blue-600'
     }
@@ -33,6 +34,14 @@ export default function App() {
       icon: <Monitor className="w-8 h-8 text-cyan-400" /> 
     },
   ];
+
+  // Função para evitar que o Instagram trave ao abrir links externos
+  const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    if (url.includes('linkedin')) {
+      e.preventDefault();
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center p-4 bg-slate-950 text-white font-sans selection:bg-cyan-500/30">
@@ -77,6 +86,7 @@ export default function App() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => handleSafeClick(e, link.url)}
             className={`flex items-center justify-between px-6 py-5 rounded-2xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl ${link.color}`}
           >
             <div className="flex items-center gap-3">
