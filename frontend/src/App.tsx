@@ -10,8 +10,8 @@ export default function App() {
     },
     {
       name: 'Meu LinkedIn Profissional',
-      // URL corrigida sem as barras duplas e sem acentos
-      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen', 
+      // Técnica do Google Redirect: força o Instagram a abrir o navegador externo
+      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen?utm_source=instagram&utm_medium=bio', 
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-blue-700 hover:bg-blue-600'
     }
@@ -35,10 +35,14 @@ export default function App() {
     },
   ];
 
-  // Função para evitar que aplicativos travem ao abrir links externos
+  // Função otimizada para "quebrar" o navegador interno do Instagram
   const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    e.preventDefault();
-    window.open(url, '_blank', 'noopener,noreferrer');
+    // Para o LinkedIn, forçamos a abertura fora do contexto do Instagram
+    if (url.includes('google.com/url')) {
+      e.preventDefault();
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+      if (newWindow) newWindow.opener = null;
+    }
   };
 
   return (
@@ -51,7 +55,7 @@ export default function App() {
              <span className="text-2xl font-bold text-cyan-500 tracking-tighter">JG</span>
           </div>
         </div>
-        <h1 className="text-2xl font-black tracking-tight text-white uppercase">JGKenehen_Tech</h1>
+        <h1 className="text-2xl font-black tracking-tight text-white uppercase text-center">JGKenehen_Tech</h1>
         <p className="text-cyan-500 font-medium text-sm tracking-widest uppercase mt-1">Soluções em Hardware</p>
       </div>
 
@@ -96,7 +100,7 @@ export default function App() {
         ))}
       </div>
 
-      <footer className="mt-auto py-12 text-slate-700 text-[10px] font-bold uppercase tracking-[0.3em]">
+      <footer className="mt-auto py-12 text-slate-700 text-[10px] font-bold uppercase tracking-[0.3em] text-center">
         João Gustavo • 2026
       </footer>
     </div>
