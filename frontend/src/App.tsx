@@ -35,12 +35,10 @@ export default function App() {
     },
   ];
 
-  // Função para evitar que o Instagram trave ao abrir links externos
+  // Função para evitar que aplicativos travem ao abrir links externos
   const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    if (url.includes('linkedin')) {
-      e.preventDefault();
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+    e.preventDefault();
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
