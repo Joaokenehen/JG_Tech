@@ -10,7 +10,7 @@ export default function App() {
     },
     {
       name: 'Meu LinkedIn Profissional',
-      url: 'https://www.linkedin.com/in/jo%C3%A3o-gustavo-quennehen-431baa2b7/', // 👈 Substitua pelo seu link
+      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen//', // 👈 Substitua pelo seu link
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-blue-700 hover:bg-blue-600'
     }
