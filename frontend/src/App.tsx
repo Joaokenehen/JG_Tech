@@ -11,7 +11,7 @@ export default function App() {
     {
       name: 'Meu LinkedIn Profissional',
       // Técnica do Google Redirect: força o Instagram a abrir o navegador externo
-      url: 'https://www.linkedin.com/in/joao-gustavo-quennehen?utm_source=instagram&utm_medium=bio', 
+      url: 'https://www.google.com/url?q=https://www.linkedin.com/in/joao-gustavo-quennehen', 
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-blue-700 hover:bg-blue-600'
     }
