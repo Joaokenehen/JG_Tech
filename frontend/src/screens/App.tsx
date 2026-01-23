@@ -1,5 +1,7 @@
-import { Linkedin, MessageCircle, Monitor, HardDrive, Settings, ChevronRight } from 'lucide-react';
+import { Linkedin, MessageCircle, Monitor, HardDrive, Settings, Instagram } from 'lucide-react';
 import { useState } from 'react';
+import { ActionLink } from '../components/ActionLink';
+import { ServiceCard } from '../components/ServiceCard';
 
 export default function App() {
   // Estado para controlar qual serviço está aberto (baseado no nome do serviço)
@@ -11,6 +13,12 @@ export default function App() {
       url: 'https://wa.me/5544997025387',
       icon: <MessageCircle className="w-6 h-6" />,
       color: 'bg-green-600 hover:bg-green-500'
+    },
+    {
+    name: 'Siga no Instagram',
+    url: 'https://www.instagram.com/jgkenehen_tech/', 
+    icon: <Instagram className="w-6 h-6" />,
+    color: 'bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400'
     },
     {
       name: 'Meu LinkedIn Profissional',
@@ -102,62 +110,28 @@ export default function App() {
 
   
 
-      {/* Seção de Serviços - Agora com Animação de Descida */}
+      {/* Seção de Serviços - Usando o Componente ServiceCard */}
       <div className="w-full max-w-md flex flex-col gap-3 mb-10">
         <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] ml-2 mb-1">Nossos Serviços</h2>
-        {servicos.map((s) => {
-          const isOpen = activeService === s.name;
-          return (
-            <div 
-              key={s.name} 
-              onClick={() => setActiveService(isOpen ? null : s.name)}
-              className={`group flex flex-col bg-slate-900/50 border ${isOpen ? 'border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.2)]' : 'border-slate-800'} p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:bg-slate-900 shadow-xl overflow-hidden`}
-            >
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-slate-800 rounded-xl group-hover:scale-110 transition-transform">
-                  {s.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-lg leading-none mb-1 group-hover:text-cyan-400 transition-colors">{s.name}</h3>
-                  <p className="text-slate-400 text-xs leading-tight">{s.desc}</p>
-                </div>
-                <ChevronRight className={`w-5 h-5 text-slate-700 transition-all duration-300 ${isOpen ? 'rotate-90 text-cyan-500' : ''}`} />
-              </div>
-
-              {/* Este é o container que faz a animação de "descer" */}
-              <div 
-                className={`grid transition-all duration-500 ease-in-out ${
-                  isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
-                }`}
-              >
-                <div className="overflow-hidden">
-                  {/* O conteúdo interno só aparece totalmente quando expandido */}
-                  {s.detalhes}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        {servicos.map((s) => (
+          <ServiceCard
+            key={s.name}
+            {...s} // Isso passa automaticamente: name, desc, icon e detalhes
+            isOpen={activeService === s.name}
+            onToggle={() => setActiveService(activeService === s.name ? null : s.name)}
+          />
+        ))}
       </div>
 
-      {/* Botões de Ação - Mantidos Exatamente Iguais */}
+     {/* Botões de Ação - Usando o Componente ActionLink */}
       <div className="w-full max-w-md flex flex-col gap-4">
         <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] ml-2 mb-1">Links Úteis</h2>
         {links.map((link) => (
-          <a
+          <ActionLink
             key={link.name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => handleSafeClick(e, link.url)}
-            className={`flex items-center justify-between px-6 py-5 rounded-2xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl ${link.color}`}
-          >
-            <div className="flex items-center gap-3">
-              {link.icon}
-              <span className="text-lg">{link.name}</span>
-            </div>
-            <ChevronRight className="w-5 h-5 opacity-50" />
-          </a>
+            {...link} // Passa name, url, icon, color
+            onClick={handleSafeClick}
+          />
         ))}
       </div>
 
