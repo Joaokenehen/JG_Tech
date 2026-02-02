@@ -1,7 +1,8 @@
-import { Linkedin, MessageCircle, Monitor, HardDrive, Settings, Instagram } from 'lucide-react';
+import { Linkedin, MessageCircle, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import { ActionLink } from '../components/ActionLink';
 import { ServiceCard } from '../components/ServiceCard';
+import { servicos } from '../data/services';
 
 export default function App() {
   // Estado para controlar qual serviço está aberto (baseado no nome do serviço)
@@ -28,63 +29,7 @@ export default function App() {
     }
   ];
 
-  const servicos = [
-    { 
-      name: 'Limpeza Técnica', 
-      desc: 'Remoção de poeira e troca de pasta térmica premium.',
-      icon: <Settings className="w-8 h-8 text-cyan-400" />,
-      detalhes: (
-        <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
-          <div>
-            <h4 className="font-bold text-cyan-500">Limpeza Profunda</h4>
-            <p>Remoção de oxidação e poeira acumulada em fans e dissipadores. Feito em notebook e desktop.</p>
-          </div>
-          <div>
-            <h4 className="font-bold text-cyan-500">Troca de Pasta Térmica</h4>
-            <p>Utilizamos pasta térmica de melhor qualidade. A aplicação é ajustada conforme a finalidade do seu PC (Gamer, Edição ou Office).</p>
-          </div>
-        </div>
-      )
-    },
-    { 
-      name: 'Formatação & Backup', 
-      desc: 'Sistema limpo, rápido e seus arquivos protegidos.',
-      icon: <HardDrive className="w-8 h-8 text-cyan-400" />,
-      detalhes: (
-        <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
-        <div >
-          <h4 className="font-bold text-cyan-500">Instalação</h4>
-          <p>Instalação de drivers oficiais completos, instalação do kit Office e caso necessário otimização do sistema para melhor desempenho.</p>
-        </div>
-         <div>
-            <h4 className="font-bold text-cyan-500">Troca de Pasta Térmica</h4>
-            <p>Utilizamos pasta térmica de melhor qualidade. A aplicação é ajustada conforme a finalidade do seu PC (Gamer, Edição ou Office).</p>
-          </div>
-        </div>
-      )
-    },
-    { 
-      name: 'Montagem de PC', 
-      desc: 'Montagem profissional com cable management.',
-      icon: <Monitor className="w-8 h-8 text-cyan-400" />,
-      detalhes: (
-        <div className="mt-4 pt-4 border-t border-slate-800 text-sm space-y-3 text-slate-300 animate-in fade-in duration-500">
-          <div>
-          <h4 className="font-bold text-cyan-500">Montagem de PC</h4>
-          <p>Montagem completa de CPU com os componentes corretamente instalados.</p>
-          </div>
-          <div>
-          <h4 className="font-bold text-cyan-500">Cable Management</h4>
-          <p>Organização impecável dos cabos para melhor fluxo de ar e estética do seu setup.</p>
-          </div>
-          <div>
-          <h4 className="font-bold text-cyan-500">Upgrade de máquina</h4>
-          <p>Melhoria de componentes (SSD, RAM, etc.), feito tanto para notebooks e CPU .</p>
-          </div>
-        </div>
-      )
-    },
-  ];
+
 
   const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
     if (url.includes('google.com/url') || url.includes('linkedin.com')) {
