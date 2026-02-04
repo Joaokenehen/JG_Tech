@@ -1,4 +1,4 @@
-import { Linkedin, MessageCircle, Instagram } from 'lucide-react';
+import { Linkedin, MessageCircle, Instagram, Download } from 'lucide-react';
 import { useState } from 'react';
 import { ActionLink } from '../components/ActionLink';
 import { ServiceCard } from '../components/ServiceCard';
@@ -26,18 +26,25 @@ export default function App() {
       url: 'https://www.linkedin.com/in/joao-gustavo-quennehen?utm_source=instagram&utm_medium=bio', 
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-blue-700 hover:bg-blue-600'
-    }
+    },
+    {
+      name: 'Baixar AnyDesk (Suporte)',
+      url: 'https://anydesk.com/pt/downloads/windows', 
+      icon: <Download className="w-6 h-6" />,
+      color: 'bg-red-700 hover:bg-red-600'
+    },
   ];
 
 
 
-  const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    if (url.includes('google.com/url') || url.includes('linkedin.com')) {
-      e.preventDefault();
-      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-      if (newWindow) newWindow.opener = null;
-    }
-  };
+ const handleSafeClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+  // Adicionei o 'anydesk.com' na verificação
+  if (url.includes('google.com/url') || url.includes('linkedin.com') || url.includes('anydesk.com')) {
+    e.preventDefault();
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) newWindow.opener = null;
+  }
+};
 
   return (
     <div className="min-h-screen flex flex-col items-center p-4 bg-slate-950 text-white font-sans selection:bg-cyan-500/30">

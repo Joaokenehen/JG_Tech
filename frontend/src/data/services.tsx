@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { Settings, HardDrive, Monitor } from 'lucide-react';
+import { Settings, HardDrive, Monitor, Globe } from 'lucide-react';
 
 // Definimos o contrato (interface) de como um serviço deve ser
 export interface ServiceData {
@@ -65,4 +65,28 @@ export const servicos: ServiceData[] = [
       </div>
     )
   },
+ { 
+  name: 'Suporte Remoto', 
+  desc: 'Solução de problemas de software e sistema sem sair de casa.',
+  icon: <Globe className="w-8 h-8 text-cyan-400" />,
+  detalhes: (
+    <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
+      <div>
+        <h4 className="font-bold text-cyan-500">Soluções Rápidas</h4>
+        <p>Seu Windows está lento? O Office parou de funcionar? Algum programa não abre? Resolvemos erros de sistema, instalação de drivers e suporte a aplicativos de forma ágil.</p>
+      </div>
+      <div className="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+        <h4 className="font-bold text-yellow-500 mb-1 text-xs uppercase tracking-wider">Como preparar o acesso:</h4>
+        <ul className="list-disc list-outside ml-5 space-y-2 text-xs text-slate-300">
+            <li>
+             Ter o software <strong>AnyDesk</strong> instalado (você pode baixá-lo no link 
+             <span className="text-cyan-400 font-bold"> "Baixar AnyDesk"</span> logo abaixo).
+            </li>
+            <li>Possuir uma conexão estável com a internet.</li>
+            <li>Informar o seu <strong>Código de Acesso</strong> ao técnico.</li>
+        </ul>
+      </div>
+    </div>
+  )
+},
 ];
