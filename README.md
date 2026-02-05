@@ -43,3 +43,18 @@ O código foi organizado seguindo as melhores práticas de modularização:
 1. Clone o repositório:
    ```bash
    git clone [https://github.com/Joaokenehen/jg_tech.git](https://github.com/Joaokenehen/jg_tech.git)
+
+2. Entre na pasta do frontend:
+   ```bash
+   cd frontend
+   
+3. Instale as dependências:
+   ```bash
+   npm install
+   
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+
+## 👨‍💻 Autor
+João Gustavo Quennehen - Análise e Desenvolvimento de Sistemas e Desenvolvedor Enthusiast.
