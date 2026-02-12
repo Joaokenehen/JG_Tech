@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Servicos from './screens/servicos'
+import Servicos from './screens/Servicos'
 
 function App() {
   return (
