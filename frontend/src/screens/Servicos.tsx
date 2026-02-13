@@ -2,7 +2,7 @@ import { Linkedin, MessageCircle, Instagram, Download } from 'lucide-react';
 import { useState } from 'react';
 import { ActionLink } from '../components/ActionLink';
 import { ServiceCard } from '../components/ServiceCard';
-import { servicos } from '../data/services';
+import { servicos } from '../data/servicesData';
 
 export default function App() {
   // Estado para controlar qual serviço está aberto (baseado no nome do serviço)
