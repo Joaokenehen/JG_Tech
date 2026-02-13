@@ -13,16 +13,40 @@ export default function Portfolio() {
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
       
       {/* --- 1. HERO SECTION --- */}
-      <section className="relative flex flex-col items-center justify-center min-h-[75vh] px-6 text-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20 pointer-events-none">
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="w-full h-full rounded-full border border-dashed border-cyan-500/30"
-          />
+      <section className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
+        
+        {/* --- EFEITO RETROWAVE GRID (Substituindo o Vídeo) --- */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          {/* Gradiente de profundidade (Nevoeiro no horizonte) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/20 to-transparent z-10" />
+          
+          {/* Linhas de perspectiva animadas */}
+          <div 
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[100%] origin-bottom"
+            style={{ 
+              perspective: '500px', 
+              transform: 'rotateX(60deg) translateX(-25%)' 
+            }}
+          >
+            <motion.div 
+              animate={{ backgroundPosition: '0 40px' }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="w-full h-full shadow-[inset_0_0_100px_rgba(6,182,212,0.2)]"
+              style={{
+                backgroundImage: `
+                  linear-gradient(to right, rgba(6,182,212,0.2) 1px, transparent 1px),
+                  linear-gradient(to bottom, rgba(6,182,212,0.2) 1px, transparent 1px)
+                `,
+                backgroundSize: '40px 40px'
+              }}
+            />
+          </div>
+
+          {/* Brilho de fundo para dar cor ao horizonte */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-cyan-900/20 blur-[120px] rounded-full" />
         </div>
 
-        <div className="z-10 flex flex-col items-center gap-8">
+        <div className="z-20 flex flex-col items-center gap-8">
           <motion.div 
             initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}
             className="relative w-36 h-36 md:w-48 md:h-48"
@@ -42,7 +66,7 @@ export default function Portfolio() {
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
               João <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Gustavo</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl">
+            <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl text-shadow-sm">
               Desenvolvedor <span className="text-white font-semibold">Full Stack</span> especializado em criar experiências digitais escaláveis e arquitetura moderna.
             </p>
           </motion.div>
@@ -59,7 +83,7 @@ export default function Portfolio() {
       </section>
 
       {/* --- 2. TECH STACK --- */}
-      <section className="py-24 px-6 bg-slate-900/40 border-y border-slate-900">
+      <section className="pt-16 pb-24 px-6 bg-slate-900/40 border-y border-slate-900 relative">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 text-center">
             <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
