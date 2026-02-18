@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { Code2 } from 'lucide-react';
-
+import { Header } from '../components/Header';
 import { techStack } from '../data/portifolioData';
 import { SocialButton } from '../components/SocialButtons';
 import { TechCard } from '../components/TechCard';
@@ -11,6 +11,8 @@ import { ProjectCard } from '../components/ProjectCard';
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
+
+      <Header />
       
       {/* --- 1. HERO SECTION --- */}
       <section className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
