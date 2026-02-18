@@ -12,17 +12,13 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
 
+      {/* --- HEADER --- */}
       <Header />
       
-      {/* --- 1. HERO SECTION --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
-        
-        {/* --- EFEITO RETROWAVE GRID (Substituindo o Vídeo) --- */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* Gradiente de profundidade (Nevoeiro no horizonte) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/20 to-transparent z-10" />
-          
-          {/* Linhas de perspectiva animadas */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">     
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/20 to-transparent z-10" />      
           <div 
             className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[100%] origin-bottom"
             style={{ 
@@ -43,8 +39,6 @@ export default function Portfolio() {
               }}
             />
           </div>
-
-          {/* Brilho de fundo para dar cor ao horizonte */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-cyan-900/20 blur-[120px] rounded-full" />
         </div>
 
@@ -85,7 +79,7 @@ export default function Portfolio() {
       </section>
 
       {/* --- 2. TECH STACK --- */}
-      <section className="pt-16 pb-24 px-6 bg-slate-900/40 border-y border-slate-900 relative">
+      <section id="tech" className="pt-16 pb-24 px-6 bg-slate-900/40 border-y border-slate-900 relative">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 text-center">
             <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
@@ -102,7 +96,7 @@ export default function Portfolio() {
       </section>
 
       {/* --- 3. PROJETOS --- */}
-      <section className="py-24 px-6">
+      <section id="projects" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12 flex items-center gap-3 justify-center md:justify-start">
             <div className="w-10 h-1 bg-cyan-500 rounded-full" /> Projetos em Destaque
@@ -122,7 +116,9 @@ export default function Portfolio() {
       </section>
 
       {/* --- 4. CONTATO --- */}
+      <div id="contact">
       <ContactSection />
+      </div>
 
       {/* --- 5. FOOTER --- */}
       <footer className="py-16 text-center border-t border-slate-900">

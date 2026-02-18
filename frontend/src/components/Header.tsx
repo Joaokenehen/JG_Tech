@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrollingFromClick, setIsScrollingFromClick] = useState(false);
 
   const navItems = [
     { name: 'Tecnologias', href: '#tech' },
@@ -11,11 +12,23 @@ export const Header = () => {
     { name: 'Contato', href: '#contact' },
   ];
 
-  // Lógica de Scroll para Mobile e Desktop
+  // Função para lidar com o clique
+  const handleNavLinkClick = () => {
+    setIsScrollingFromClick(true);
+    setIsVisible(true); // Garante que fique visível ao clicar
+    
+    // Libera a trava após o tempo do scroll suave acabar (aprox 800ms)
+    setTimeout(() => {
+      setIsScrollingFromClick(false);
+    }, 1000);
+  };
+
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
-        // Se rolar para baixo, esconde. Se rolar para cima, mostra.
+        // Se a gente clicou em um link agora, não faz nada com a visibilidade
+        if (isScrollingFromClick) return;
+
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
           setIsVisible(false);
         } else {
@@ -27,44 +40,39 @@ export const Header = () => {
 
     window.addEventListener('scroll', controlNavbar);
     return () => window.removeEventListener('scroll', controlNavbar);
-  }, [lastScrollY]);
-
-  // Timer inicial para sumir após 3 segundos
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (window.scrollY < 100) setIsVisible(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
+  }, [lastScrollY, isScrollingFromClick]); // Adicionado isScrollingFromClick aqui
 
   return (
     <motion.header
-      // Mantém a interação de mouse para Desktop
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => {
-        if (window.scrollY > 100) setIsVisible(false);
+        if (window.scrollY > 100 && !isScrollingFromClick) setIsVisible(false);
       }}
       initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : -75 }}
+      animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6"
     >
       <nav className="w-full max-w-6xl flex items-center justify-between px-6 md:px-8 py-3 md:py-4 bg-slate-900/70 backdrop-blur-lg border border-slate-800 rounded-2xl shadow-2xl">
         
-        {/* Esquerda: Seu Nome */}
-        <div className="flex items-center gap-2">
-          <span className="text-base md:text-lg font-black tracking-tighter text-white">
+        {/* Lado Esquerdo: Nome */}
+        <div className="flex items-center gap-3">
+          <span className="text-base md:text-lg font-black tracking-tighter text-white whitespace-nowrap">
             JOÃO <span className="text-cyan-500">GUSTAVO</span>
           </span>
+          <div className="flex px-2 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/30">
+             <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Dev</span>
+          </div>
         </div>
 
-        {/* Direita: Abas (Com ajuste de tamanho para Mobile) */}
-        <div className="flex items-center gap-3 md:gap-6">
+        {/* Lado Direito: Nav */}
+        <div className="flex items-center gap-4 md:gap-6">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-[10px] md:text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors uppercase md:normal-case"
+              onClick={handleNavLinkClick} // Adicionado o clique aqui
+              className="text-[11px] md:text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors uppercase md:normal-case"
             >
               {item.name}
             </a>
@@ -72,6 +80,7 @@ export const Header = () => {
           <div className="w-px h-4 bg-slate-700 hidden sm:block" />
           <a
             href="mailto:joao_quennehen@outlook.com"
+            onClick={handleNavLinkClick}
             className="hidden sm:block text-sm font-bold text-slate-400 hover:text-white transition-colors"
           >
             Email
