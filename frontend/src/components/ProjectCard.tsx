@@ -20,6 +20,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className="group relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-1"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 opacity-20 group-hover:opacity-40 transition-opacity" />
+      
       <div className="relative bg-slate-950 rounded-[22px] p-8 md:p-12 md:flex gap-12 items-center text-center md:text-left">
         <div className="flex-1 space-y-6">
           {badge && (
@@ -45,13 +46,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </span>
             ))}
           </div>
+
           <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-            <Link 
-              to={servicesUrl}
-              className="flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-950 font-black rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-xl shadow-white/5"
-            >
-              Ver Serviços <ChevronRight size={20} />
-            </Link>
+            {/* Lógica condicional: O botão só aparece se houver um link de serviços válido */}
+            {servicesUrl && servicesUrl !== "#" && (
+              <Link 
+                to={servicesUrl}
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-950 font-black rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-xl shadow-white/5"
+              >
+                Ver Serviços <ChevronRight size={20} />
+              </Link>
+            )}
             
             <a 
               href={repoUrl} 

@@ -16,3 +16,30 @@ export const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/joao-gustavo-quennehen', icon: FaLinkedin },
   { name: 'WhatsApp', href: 'https://wa.me/5544997025387', icon: FaWhatsapp },
 ];
+
+export const projects = [
+  {
+    title: "JGTech Brasil",
+    badge: "Case de Sucesso",
+    description: "Um ecossistema digital para prestação de serviços de TI. Focado em performance extrema e interface limpa.",
+    tags: ["React", "Node.js", "TypeScript", "Tailwind"],
+    repoUrl: "https://github.com/Joaokenehen/jg_tech",
+    servicesUrl: "/servicos"
+  },
+  {
+    title: "E-Commerce Alpha",
+    badge: "Full Stack",
+    description: "Plataforma de vendas com integração de pagamentos e painel administrativo completo.",
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
+    repoUrl: "https://github.com/Joaokenehen/ecommerce",
+    servicesUrl: "#"
+  },
+  {
+    title: "Sistema de Agendamento",
+    badge: "Mobile First",
+    description: "App para barbearias e salões controlarem horários e clientes em tempo real.",
+    tags: ["React Native", "Firebase"],
+    repoUrl: "https://github.com/Joaokenehen/agendamento",
+    servicesUrl: "#"
+  }
+];

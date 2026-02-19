@@ -7,8 +7,26 @@ import { SocialButton } from '../components/SocialButtons';
 import { TechCard } from '../components/TechCard';
 import { ContactSection } from '../components/ContactSection';
 import { ProjectCard } from '../components/ProjectCard';
+import { useState } from 'react';
+import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
+import { projects } from '../data/portifolioData';
 
 export default function Portfolio() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const filteredProjects = projects.filter(project =>
+    project.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const nextProject = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredProjects.length);
+  }
+
+  const prevProject = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + filteredProjects.length) % filteredProjects.length);
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
 
@@ -95,23 +113,71 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- 3. PROJETOS --- */}
-      <section id="projects" className="py-24 px-6">
+     {/* --- 3. PROJETOS --- */}
+      <section id="projects" className="py-24 px-6 min-h-[600px]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-12 flex items-center gap-3 justify-center md:justify-start">
-            <div className="w-10 h-1 bg-cyan-500 rounded-full" /> Projetos em Destaque
-          </h2>
-          
-          <div className="grid gap-10">
-            <ProjectCard 
-              title="JGTech Brasil"
-              badge="Case de Sucesso"
-              description="Um ecossistema digital para prestação de serviços de TI. Focado em performance extrema e uma interface limpa que converte visitantes em clientes."
-              tags={["React", "Node.js", "TypeScript", "Tailwind"]}
-              servicesUrl="/servicos"
-              repoUrl="https://github.com/Joaokenehen/jg_tech"
-            />
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+            <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+              <div className="w-10 h-1 bg-cyan-500 rounded-full" /> Projetos
+            </h2>
+
+            {/* BARRA DE PESQUISA */}
+            <div className="relative group">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-cyan-400 transition-colors" />
+              <input 
+                type="text"
+                placeholder="Pesquisar projeto..."
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setCurrentIndex(0); // Volta para o primeiro ao pesquisar
+                }}
+                className="bg-slate-900/50 border border-slate-800 text-white pl-10 pr-4 py-2 rounded-xl focus:outline-none focus:border-cyan-500/50 w-full md:w-64 transition-all"
+              />
+            </div>
           </div>
+          
+          {filteredProjects.length > 0 ? (
+            <div className="relative group">
+              {/* CARDS COM ANIMAÇÃO */}
+              <motion.div 
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProjectCard {...filteredProjects[currentIndex]} />
+              </motion.div>
+
+              {/* SETAS DE NAVEGAÇÃO (Só aparecem se houver mais de 1 projeto) */}
+              {filteredProjects.length > 1 && (
+                <div className="flex justify-center md:justify-end gap-4 mt-8">
+                  <button 
+                    onClick={prevProject}
+                    className="p-3 rounded-full bg-slate-900 border border-slate-800 text-white hover:border-cyan-500 transition-colors shadow-lg"
+                  >
+                    <ChevronLeft />
+                  </button>
+                  <button 
+                    onClick={nextProject}
+                    className="p-3 rounded-full bg-slate-900 border border-slate-800 text-white hover:border-cyan-500 transition-colors shadow-lg"
+                  >
+                    <ChevronRight />
+                  </button>
+                </div>
+              )}
+              
+              {/* INDICADOR DE QUANTIDADE */}
+              <p className="text-center text-slate-500 mt-4 text-sm font-mono">
+                {currentIndex + 1} / {filteredProjects.length}
+              </p>
+            </div>
+          ) : (
+            <div className="text-center py-20 bg-slate-900/20 rounded-3xl border border-dashed border-slate-800">
+              <p className="text-slate-500">Nenhum projeto encontrado com "{searchTerm}"</p>
+            </div>
+          )}
         </div>
       </section>
 
