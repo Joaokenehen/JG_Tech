@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/portifolio" element={<Portifolio />} />
+        <Route path="/portfolio" element={<Portifolio />} />
         <Route path="/servicos" element={<Servicos />} />
         <Route path="*" element={<Navigate to="/servicos" replace />} />
       </Routes>
