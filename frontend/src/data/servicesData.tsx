@@ -15,7 +15,7 @@ export const servicos: ServiceData[] = [
     desc: 'Remoção de poeira e troca de pasta térmica premium.',
     icon: <Settings className="w-8 h-8 text-cyan-400" />,
     detalhes: (
-      <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
+      <div className="mt-4 pt-4 border-t border-slate-800 text-base text-slate-300 space-y-4 animate-in fade-in duration-500">
         <div>
           <h4 className="font-bold text-cyan-500">Limpeza Profunda</h4>
           <p>Remoção de oxidação e poeira acumulada em fans e dissipadores. Feito em notebook e desktop.</p>
@@ -32,7 +32,7 @@ export const servicos: ServiceData[] = [
     desc: 'Sistema limpo, rápido e seus arquivos protegidos.',
     icon: <HardDrive className="w-8 h-8 text-cyan-400" />,
     detalhes: (
-      <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
+      <div className="mt-4 pt-4 border-t border-slate-800 text-base text-slate-300 space-y-4 animate-in fade-in duration-500">
         <div>
           <h4 className="font-bold text-cyan-500">Instalação</h4>
           <p>Instalação de drivers oficiais completos, kit Office e otimização do sistema para melhor desempenho.</p>
@@ -49,7 +49,7 @@ export const servicos: ServiceData[] = [
     desc: 'Montagem profissional com cable management.',
     icon: <Monitor className="w-8 h-8 text-cyan-400" />,
     detalhes: (
-      <div className="mt-4 pt-4 border-t border-slate-800 text-sm space-y-3 text-slate-300 animate-in fade-in duration-500">
+      <div className="mt-4 pt-4 border-t border-slate-800 text-base text-slate-300 space-y-4 animate-in fade-in duration-500">
         <div>
           <h4 className="font-bold text-cyan-500">Montagem de PC</h4>
           <p>Montagem completa de CPU com os componentes corretamente instalados e testados.</p>
@@ -70,7 +70,7 @@ export const servicos: ServiceData[] = [
   desc: 'Solução de problemas de software e sistema sem sair de casa.',
   icon: <Globe className="w-8 h-8 text-cyan-400" />,
   detalhes: (
-    <div className="mt-4 pt-4 border-t border-slate-800 text-sm text-slate-300 space-y-3 animate-in fade-in duration-500">
+    <div className="mt-4 pt-4 border-t border-slate-800 text-base text-slate-300 space-y-4 animate-in fade-in duration-500">
       <div>
         <h4 className="font-bold text-cyan-500">Soluções Rápidas</h4>
         <p>Seu Windows está lento? O Office parou de funcionar? Algum programa não abre? Resolvemos erros de sistema, instalação de drivers e suporte a aplicativos de forma ágil.</p>
