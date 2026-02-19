@@ -7,9 +7,10 @@ export const Header = () => {
   const [isScrollingFromClick, setIsScrollingFromClick] = useState(false);
 
   const navItems = [
+    { name: 'Contato', href: '#contact' },
     { name: 'Tecnologias', href: '#tech' },
     { name: 'Projetos', href: '#projects' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Email', href: '#email'}
   ];
 
   // Função para lidar com o clique
@@ -26,7 +27,6 @@ export const Header = () => {
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
-        // Se a gente clicou em um link agora, não faz nada com a visibilidade
         if (isScrollingFromClick) return;
 
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
@@ -71,20 +71,12 @@ export const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              onClick={handleNavLinkClick} // Adicionado o clique aqui
+              onClick={handleNavLinkClick}
               className="text-[11px] md:text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors uppercase md:normal-case"
             >
               {item.name}
             </a>
           ))}
-          <div className="w-px h-4 bg-slate-700 hidden sm:block" />
-          <a
-            href="mailto:joao_quennehen@outlook.com"
-            onClick={handleNavLinkClick}
-            className="hidden sm:block text-sm font-bold text-slate-400 hover:text-white transition-colors"
-          >
-            Email
-          </a>
         </div>
       </nav>
     </motion.header>

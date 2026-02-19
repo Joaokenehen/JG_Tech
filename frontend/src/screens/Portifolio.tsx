@@ -16,7 +16,7 @@ export default function Portfolio() {
       <Header />
       
       {/* --- HERO SECTION --- */}
-      <section className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
+      <section id="contact" className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">     
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/20 to-transparent z-10" />      
           <div 
@@ -116,7 +116,7 @@ export default function Portfolio() {
       </section>
 
       {/* --- 4. CONTATO --- */}
-      <div id="contact">
+      <div id="email">
       <ContactSection />
       </div>
 
