@@ -29,7 +29,6 @@ export const ContactSection = () => {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          {/* ... Ícone e Títulos permanecem iguais ... */}
           <div className="inline-flex p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 mb-4">
             <Mail className="w-12 h-12 text-cyan-400" />
           </div>

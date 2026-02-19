@@ -27,19 +27,49 @@ export const projects = [
     servicesUrl: "/servicos"
   },
   {
-    title: "E-Commerce Alpha",
-    badge: "Full Stack",
-    description: "Plataforma de vendas com integração de pagamentos e painel administrativo completo.",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    repoUrl: "https://github.com/Joaokenehen/ecommerce",
-    servicesUrl: "#"
+    title: "Estoque Raiz - WMS",
+    badge: "Enterprise Architecture",
+    description: "Sistema WMS de alta complexidade para gestão de insumos agrícolas. Utiliza arquitetura de microserviços distribuídos com foco em rastreabilidade de lotes, performance com Redis e monitoramento via Prometheus/Grafana.",
+    tags: ["Microservices", "TypeScript", "Docker", "DDD", "Redis", "PostgreSQL"],
+    repoUrl: "https://github.com/Joaokenehen/Estoque_Raiz", // Confirme se o nome do repo está correto
+    servicesUrl: "#", // Mantemos oculto como os outros repositórios
+    date: "2024-05-20"
   },
   {
-    title: "Sistema de Agendamento",
-    badge: "Mobile First",
-    description: "App para barbearias e salões controlarem horários e clientes em tempo real.",
-    tags: ["React Native", "Firebase"],
-    repoUrl: "https://github.com/Joaokenehen/agendamento",
-    servicesUrl: "#"
-  }
+    title: "PetWorking",
+    badge: "Full Stack Ecosystem",
+    description: "Sistema completo de gestão para Pet Shops que une e-commerce e agendamento de serviços. Inclui controle de estoque, perfis de pets, autenticação JWT e uma arquitetura robusta com Node.js, React e MySQL.",
+    tags: ["React", "Node.js", "MySQL", "Docker", "TypeScript", "Sequelize"],
+    repoUrl: "https://github.com/LucasSC98/Pet-Working",
+    servicesUrl: "#", // Mantemos oculto como os outros repositórios
+    date: "2024-06-15"
+  },
+  {
+    title: "Cardápio do Pajé",
+    badge: "Full Stack & Mobile",
+    description: "Sistema de cardápio digital composto por uma API REST robusta e uma aplicação mobile para pedidos em tempo real. Desenvolvido para otimizar o atendimento de estabelecimentos gastronómicos.",
+    tags: ["React Native", "Node.js", "Express", "Expo"],
+    repoUrl: "https://github.com/Joaokenehen/cardapio-do-paje",
+    servicesUrl: "#", 
+    date: "2024-02-15"
+  },
+  {
+    title: "Cardápio Jatos Mobile",
+    badge: "Mobile Specialist",
+    description: "Um catálogo interativo de defesa aérea que permite explorar jatos militares com detalhes técnicos. Focado em UX fluida e alta performance para dispositivos móveis.",
+    tags: ["React Native", "Expo", "TypeScript", "Lucide React"],
+    repoUrl: "https://github.com/Joaokenehen/cardapio-jatos-mobile",
+    servicesUrl: "#", 
+    date: "2024-03-10"
+  },
+  {
+    title: "Secure Auth & File Manager",
+    badge: "Security & Backend",
+    description: "Sistema full-stack focado em segurança, implementando controle de acesso baseado em funções (RBAC), autenticação robusta e gestão modular de uploads de ficheiros.",
+    tags: ["Node.js", "Express", "RBAC", "JWT", "Multer"],
+    repoUrl: "https://github.com/Joaokenehen/atividade5_tpi4",
+    servicesUrl: "#", // Botão de serviços oculto
+    date: "2024-04-05"
+  },
+  
 ];
