@@ -22,7 +22,7 @@ export function ServiceCard({ name, desc, icon, detalhes, isOpen, onToggle }: Se
         </div>
         <div className="flex-1">
           <h3 className="font-bold text-lg leading-none mb-1 group-hover:text-cyan-400 transition-colors">{name}</h3>
-          <p className="text-slate-400 text-xs leading-tight">{desc}</p>
+          <p className="text-slate-400 text-lg leading-tight">{desc}</p>  
         </div>
         <ChevronRight className={`w-5 h-5 text-slate-700 transition-all duration-300 ${isOpen ? 'rotate-90 text-cyan-500' : ''}`} />
       </div>
