@@ -75,10 +75,10 @@ export const TechSphere = () => {
     });
   });
 
-  const radius = window.innerWidth < 768 ? 120 : 220;
+  const radius = window.innerWidth < 768 ? 120 : 300;
 
   return (
-    <div className="relative h-[400px] md:h-[550px] w-full flex items-center justify-center overflow-visible">
+    <div className="relative h-[500px] md:h-[700px] w-full flex items-center justify-center overflow-visible">
       <div className="relative w-full h-full" style={{ perspective: '1000px' }}>
         {techStack.map((tech, index) => {
           // Algoritmo de distribuição esférica
