@@ -1,5 +1,5 @@
 import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaWhatsapp, FaJava } from 'react-icons/fa';
-import { SiTypescript, SiVite, SiC } from 'react-icons/si';
+import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql } from 'react-icons/si';
 
 export const techStack = [
   { name: 'React', icon: FaReact, color: '#61DAFB', shadow: 'shadow-blue-500/20' },
@@ -9,6 +9,12 @@ export const techStack = [
   { name: 'Linguagem C', icon: SiC, color: '#A8B9CC', shadow: 'shadow-slate-400/20' },
   { name: 'Java', icon: FaJava, color: '#ED8B00', shadow: 'shadow-orange-500/20' },
   { name: 'Vite', icon: SiVite, color: '#646CFF', shadow: 'shadow-purple-500/20' },
+  { name: 'MySQL', icon: SiMysql, color: '#4479A1', shadow: 'shadow-blue-700/20' },
+  { name: 'Sequelize', icon: SiSequelize, color: '#52B0E7', shadow: 'shadow-cyan-500/20' },
+  { name: 'Git', icon: SiGit, color: '#F05032', shadow: 'shadow-red-500/20' },
+  { name: 'NPM', icon: SiNpm, color: '#CB3837', shadow: 'shadow-red-600/20' },
+  { name: 'Docker', icon: SiDocker, color: '#2496ED', shadow: 'shadow-blue-500/20' },
+  { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791', shadow: 'shadow-blue-800/20' },
 ];
 
 export const socialLinks = [
