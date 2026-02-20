@@ -2,14 +2,13 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { Code2 } from 'lucide-react';
 import { Header } from '../components/Header';
-import { techStack } from '../data/portifolioData';
 import { SocialButton } from '../components/SocialButtons';
-import { TechCard } from '../components/TechCard';
 import { ContactSection } from '../components/ContactSection';
 import { ProjectCard } from '../components/ProjectCard';
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
 import { projects } from '../data/portifolioData';
+import { TechSphere } from '../components/TechSphere';
 
 export default function Portfolio() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -97,19 +96,21 @@ export default function Portfolio() {
       </section>
 
       {/* --- 2. TECH STACK --- */}
-      <section id="tech" className="pt-16 pb-24 px-6 bg-slate-900/40 border-y border-slate-900 relative">
+      <section id="tech" className="pt-15 pb-16 px-6 bg-slate-900/40 border-y border-slate-900 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
+          {/* Cabeçalho da Seção */}
           <div className="flex flex-col items-center mb-16 text-center">
             <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Stack Tecnológica</h2>
-            <p className="text-slate-500 mt-2">Tecnologias que utilizo para dar vida a projetos de alta performance.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Stack Tecnológica
+            </h2>
+            <p className="text-slate-400 mt-2 text-lg max-w-2xl">
+              Tecnologias que utilizo para dar vida a projetos de alta performance.
+            </p>
           </div>
-          
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto">
-            {techStack.map((tech, index) => (
-              <TechCard key={tech.name} {...tech} index={index} />
-            ))}
-          </div>
+
+          {/* O Globo 3D */}
+          <TechSphere />
         </div>
       </section>
 
