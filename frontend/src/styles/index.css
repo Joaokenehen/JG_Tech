@@ -5,3 +5,7 @@ html {
 section {
   scroll-margin-top: 100px;
 }
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
