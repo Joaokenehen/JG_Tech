@@ -1,5 +1,5 @@
 import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaWhatsapp, FaJava } from 'react-icons/fa';
-import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub } from 'react-icons/si';
+import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub, SiPostman } from 'react-icons/si';
 
 export const techStack = [
   { name: 'React', icon: FaReact, color: '#61DAFB', shadow: 'shadow-blue-500/20' },
@@ -25,6 +25,7 @@ export const techStack = [
   { name: 'Expo', icon: SiExpo, color: '#000000', shadow: 'shadow-black/20' },
   { name: 'Vercel', icon: SiVercel, color: '#ece3e3', shadow: 'shadow-black/20' },
   { name: 'GitHub', icon: SiGithub, color: '#f5eded', shadow: 'shadow-gray-800/20' },  
+  { name: 'Postman', icon: SiPostman, color: '#FF6C37', shadow: 'shadow-orange-500/20' },
 ];
 
 export const socialLinks = [

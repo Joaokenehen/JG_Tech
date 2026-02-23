@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ name, desc, icon, detalhes, isOpen, onToggle }: ServiceCardProps) {
   return (
-    <div 
+    <div  
       onClick={onToggle}
       className={`group flex flex-col bg-slate-900/50 border ${isOpen ? 'border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.2)]' : 'border-slate-800'} p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:bg-slate-900 shadow-xl overflow-hidden`}
     >
