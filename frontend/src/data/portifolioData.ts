@@ -1,12 +1,12 @@
 import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaWhatsapp, FaJava } from 'react-icons/fa';
-import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel } from 'react-icons/si';
+import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub } from 'react-icons/si';
 
 export const techStack = [
   { name: 'React', icon: FaReact, color: '#61DAFB', shadow: 'shadow-blue-500/20' },
   { name: 'Node.js', icon: FaNodeJs, color: '#339933', shadow: 'shadow-green-500/20' },
   { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', shadow: 'shadow-blue-600/20' },
   { name: 'JavaScript', icon: FaJs, color: '#F7DF1E', shadow: 'shadow-yellow-500/20' },
-  { name: 'Linguagem C', icon: SiC, color: '#A8B9CC', shadow: 'shadow-slate-400/20' },
+  { name: 'C', icon: SiC, color: '#A8B9CC', shadow: 'shadow-slate-400/20' },
   { name: 'Java', icon: FaJava, color: '#ED8B00', shadow: 'shadow-orange-500/20' },
   { name: 'Vite', icon: SiVite, color: '#646CFF', shadow: 'shadow-purple-500/20' },
   { name: 'MySQL', icon: SiMysql, color: '#4479A1', shadow: 'shadow-blue-700/20' },
@@ -23,7 +23,8 @@ export const techStack = [
   { name: 'Chocolatey', icon: SiChocolatey, color: '#D2691E', shadow: 'shadow-orange-500/20' },
   { name: 'Redis', icon: SiRedis, color: '#D82C20', shadow: 'shadow-red-500/20' },
   { name: 'Expo', icon: SiExpo, color: '#000000', shadow: 'shadow-black/20' },
-  { name: 'Vercel', icon: SiVercel, color: '#ece3e3', shadow: 'shadow-black/20' },  
+  { name: 'Vercel', icon: SiVercel, color: '#ece3e3', shadow: 'shadow-black/20' },
+  { name: 'GitHub', icon: SiGithub, color: '#f5eded', shadow: 'shadow-gray-800/20' },  
 ];
 
 export const socialLinks = [
