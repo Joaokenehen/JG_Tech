@@ -105,6 +105,9 @@ export default function Portfolio() {
         <div className="flex flex-col items-center mb-8 text-center">
           <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Stack Tecnológica</h2>
+          <p className="text-slate-400 mt-2 max-w-lg">
+            Tecnologias que utilizo para dar vida a projetos de alta performance.
+          </p>
           
           {/* BOTÃO DE ALTERNAR (Apenas Desktop) */}
           <button 
