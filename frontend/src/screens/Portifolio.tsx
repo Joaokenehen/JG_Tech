@@ -7,12 +7,14 @@ import { ContactSection } from '../components/ContactSection';
 import { ProjectCard } from '../components/ProjectCard';
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
-import { projects } from '../data/portifolioData';
+import { projects, techStack } from '../data/portifolioData';
 import { TechSphere } from '../components/TechSphere';
+import { TechCard } from '../components/TechCard';
 
 export default function Portfolio() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAllTech, setShowAllTech] = useState(false);
   
   const filteredProjects = projects.filter(project =>
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -96,23 +98,39 @@ export default function Portfolio() {
       </section>
 
       {/* --- 2. TECH STACK --- */}
-      <section id="tech" className="pt-15 pb-16 px-6 bg-slate-900/40 border-y border-slate-900 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          {/* Cabeçalho da Seção */}
-          <div className="flex flex-col items-center mb-16 text-center">
-            <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-              Stack Tecnológica
-            </h2>
-            <p className="text-slate-400 mt-2 text-lg max-w-2xl">
-              Tecnologias que utilizo para dar vida a projetos de alta performance.
-            </p>
-          </div>
+      <section id="tech" className="pt-32 pb-24 px-6 bg-slate-900/40 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        {/* Cabeçalho igual ao anterior */}
+        <div className="flex flex-col items-center mb-16 text-center">
+          <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Stack Tecnológica</h2>
+        </div>
 
-          {/* O Globo 3D */}
+        {/* VERSÃO DESKTOP (Gira sem travar) */}
+        <div className="hidden md:block">
           <TechSphere />
         </div>
-      </section>
+
+        {/* VERSÃO MOBILE (Lista com Show More) */}
+        <div className="md:hidden space-y-8">
+          <div className="grid grid-cols-2 gap-4">
+            {/* Se showAllTech for false, mostra só 8. Se true, mostra todos */}
+            {techStack.slice(0, showAllTech ? techStack.length : 8).map((tech, index) => (
+              <TechCard key={tech.name} {...tech} index={index} />
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setShowAllTech(!showAllTech)}
+              className="px-6 py-2 rounded-full border border-cyan-500/50 text-cyan-400 font-bold text-sm bg-cyan-500/10 hover:bg-cyan-500/20 transition-all active:scale-95"
+            >
+              {showAllTech ? 'Mostrar Menos' : 'Mostrar Todas'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
      {/* --- 3. PROJETOS --- */}
       <section id="projects" className="py-24 px-6 min-h-[600px]">

@@ -48,12 +48,17 @@ const SphereIcon = ({ tech, initialPos, rotation }: SphereIconProps) => {
       }}
       className="group cursor-pointer -translate-x-1/2 -translate-y-1/2"
     >
-      <div
-        className="p-3 rounded-xl bg-slate-900/40 border border-white/5 backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/50 group-hover:bg-slate-800"
-        style={{ boxShadow: z > 0 ? `0 0 20px ${tech.color}33` : 'none' }}
-      >
-        <tech.icon size={window.innerWidth < 768 ? 20 : 30} color={tech.color} />
-      </div>
+    <div
+      className={`p-3 rounded-xl bg-slate-900/80 border border-white/5 transition-all duration-300`}
+      style={{ 
+    // Remova o blur e use sombras apenas se z > 150 (muito na frente)
+      backdropFilter: window.innerWidth < 768 ? 'none' : 'blur(4px)',
+      boxShadow: (z > 150 && window.innerWidth > 768) ? `0 0 20px ${tech.color}33` : 'none',
+      willChange: 'transform, opacity' // Ajuda a GPU
+    }}
+>
+  <tech.icon size={window.innerWidth < 768 ? 24 : 30} color={tech.color} />
+</div>
 
       {z > 100 && (
         <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
