@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { Code2 } from 'lucide-react';
 import { Header } from '../components/Header';
@@ -7,12 +6,17 @@ import { ContactSection } from '../components/ContactSection';
 import { ProjectCard } from '../components/ProjectCard';
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, Search } from 'lucide-react';
-import { projects } from '../data/portifolioData';
+import { projects, techStack } from '../data/portifolioData';
 import { TechSphere } from '../components/TechSphere';
+import { TechCard } from '../components/TechCard';
+import { motion, AnimatePresence } from 'framer-motion';
+import { LayoutGrid, Globe2 } from 'lucide-react';
 
 export default function Portfolio() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [viewMode, setViewMode] = useState<'sphere' | 'grid'>('sphere');
+  const [showAllTechMobile, setShowAllTechMobile] = useState(false);
   
   const filteredProjects = projects.filter(project =>
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -96,23 +100,80 @@ export default function Portfolio() {
       </section>
 
       {/* --- 2. TECH STACK --- */}
-      <section id="tech" className="pt-15 pb-16 px-6 bg-slate-900/40 border-y border-slate-900 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          {/* Cabeçalho da Seção */}
-          <div className="flex flex-col items-center mb-16 text-center">
-            <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-              Stack Tecnológica
-            </h2>
-            <p className="text-slate-400 mt-2 text-lg max-w-2xl">
-              Tecnologias que utilizo para dar vida a projetos de alta performance.
-            </p>
-          </div>
-
-          {/* O Globo 3D */}
-          <TechSphere />
+      <section id="tech" className="pt-32 pb-24 px-6 bg-slate-900/40 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col items-center mb-8 text-center">
+          <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Stack Tecnológica</h2>
+          
+          {/* BOTÃO DE ALTERNAR (Apenas Desktop) */}
+          <button 
+            onClick={() => setViewMode(viewMode === 'sphere' ? 'grid' : 'sphere')}
+            className="hidden md:flex items-center gap-2 mt-6 px-4 py-2 rounded-full border border-slate-700 bg-slate-800/50 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all shadow-lg backdrop-blur-sm group"
+          >
+            {viewMode === 'sphere' ? (
+              <>
+                <LayoutGrid size={18} className="group-hover:rotate-12 transition-transform" />
+                <span className="text-sm font-medium">Ver todas em lista</span>
+              </>
+            ) : (
+              <>
+                <Globe2 size={18} className="group-hover:animate-spin-slow" />
+                <span className="text-sm font-medium">Voltar para o Globo</span>
+              </>
+            )}
+          </button>
         </div>
-      </section>
+
+        {/* --- ÁREA DAS TECHS --- */}
+        <div className="relative min-h-[500px]">
+          <AnimatePresence mode="wait">
+            {/* VERSÃO DESKTOP: GLOBO */}
+            {viewMode === 'sphere' ? (
+              <motion.div
+                key="sphere"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.4 }}
+                className="hidden md:block"
+              >
+                <TechSphere />
+              </motion.div>
+            ) : (
+              /* VERSÃO DESKTOP: GRID COMPLETA */
+              <motion.div
+                key="grid"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 py-10"
+              >
+                {techStack.map((tech, index) => (
+                  <TechCard key={tech.name} {...tech} index={index} />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* VERSÃO MOBILE: MANTÉM A LÓGICA DE MOSTRAR MAIS/MENOS */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-2 gap-4">
+              {techStack.slice(0, showAllTechMobile ? techStack.length : 8).map((tech, index) => (
+                <TechCard key={tech.name} {...tech} index={index} />
+              ))}
+            </div>
+            <button
+              onClick={() => setShowAllTechMobile(!showAllTechMobile)}
+              className="w-full mt-8 py-3 rounded-xl border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 font-bold"
+            >
+              {showAllTechMobile ? 'Mostrar Menos' : 'Ver Todas'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
      {/* --- 3. PROJETOS --- */}
       <section id="projects" className="py-24 px-6 min-h-[600px]">
