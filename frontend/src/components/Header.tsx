@@ -8,6 +8,7 @@ export const Header = () => {
 
   const navItems = [
     { name: 'Contato', mobileName: 'Contato', href: '#contact' },
+    { name: 'Sobre', mobileName: 'Sobre', href: '#about' },
     { name: 'Tecnologias', mobileName: 'Tecs', href: '#tech' }, 
     { name: 'Projetos', mobileName: 'Projs', href: '#projects' },
     { name: 'Email', mobileName: 'Email', href: '#email'}
@@ -53,7 +54,7 @@ export const Header = () => {
         {/* Lado Esquerdo: Nome (Ajustado para não quebrar) */}
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <span className="text-sm md:text-lg font-black tracking-tighter text-white whitespace-nowrap">
-            JOÃO <span className="text-cyan-500">GUSTAVO</span>
+            JOÃO <span className="text-cyan-500">G</span>
           </span>
           <div className="flex px-1.5 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/30">
              <span className="text-[9px] font-bold text-cyan-400 uppercase tracking-widest">Dev</span>
