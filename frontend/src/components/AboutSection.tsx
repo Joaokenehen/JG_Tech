@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
+import kali from '../assets/kali-linux-logo.png'; // Certifique-se de que o caminho para a imagem está correto
 
 export const AboutSection = () => {
   return (
@@ -100,15 +101,19 @@ export const AboutSection = () => {
       JG
     </span>
     {/* Logo Kali Linux */}
-    <div className="flex items-center gap-2 mt-[-20px] opacity-10 group-hover:opacity-40 transition-opacity duration-700">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-cyan-500">
-        <path d="M12 2L10.5 8.5L4 10L10 12L9 22L12 16L15 22L14 12L20 10L13.5 8.5L12 2Z" />
-      </svg>
-      <span className="text-[9px] font-mono tracking-[0.4em] text-cyan-500 uppercase font-bold">
-        Kali Linux Verified
-      </span>
-    </div>
+    <div className="flex flex-col items-center gap-3 mt-4 translate-y-4 opacity-15 group-hover:opacity-60 transition-all duration-700 ease-in-out transform group-hover:scale-105">
+    {/* TAG IMG: Substitui o SVG problemático */}
+    <img 
+      src={kali} 
+      alt="Kali Linux Dragon Logo"
+      className="w-14 h-14 object-contain invert brightness-200 contrast-120 opacity-80" 
+    />
+
+    <span className="text-[8px] font-mono tracking-[0.5em] text-cyan-500/60 uppercase font-bold text-center">
+      Kali Linux Verified
+    </span>
   </div>
+</div>
 
   {/* Overlay de Scanlines (Efeito TV antiga) */}
   <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[size:100%_2px,3px_100%] pointer-events-none z-30" />
