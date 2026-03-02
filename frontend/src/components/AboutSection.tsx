@@ -36,7 +36,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Badge title="2+" subtitle="Anos de Exp." />
+              <Badge title="1+" subtitle="Anos de Exp." />
               <Badge title="15+" subtitle="Projetos" />
               <Badge title="Cyber" subtitle="Security Student" highlight />
               <Badge title="ADS" subtitle='developer student' highlight />
