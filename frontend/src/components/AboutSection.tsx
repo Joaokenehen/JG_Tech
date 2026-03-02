@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
+import Typewriter from 'typewriter-effect';
 
 export const AboutSection = () => {
   return (
@@ -48,16 +49,48 @@ export const AboutSection = () => {
         viewport={{ once: true }}
         className="relative"
         >
-        <div className="aspect-square rounded-3xl overflow-hidden border-2 border-slate-800 bg-slate-900 relative z-10">
-          {/* Aqui você pode colocar sua foto futuramente */}
-          <div className="absolute inset-0 flex items-center justify-center text-slate-700 font-black text-8xl">
-            JG
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
-        </div>
-        
-        {/* Elemento Decorativo atrás da "foto" */}
-        <div className="absolute -top-4 -right-4 w-full h-full border-2 border-cyan-500/20 rounded-3xl -z-0" />
+        <div className="aspect-square rounded-3xl overflow-hidden border-2 border-slate-800 bg-black p-4 font-mono relative z-10 group">
+  
+  {/* Header do Terminal (Botões de fechar/minimizar) */}
+  <div className="flex gap-1.5 mb-3 border-b border-slate-900 pb-2">
+    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+    <span className="text-[10px] text-slate-700 ml-2 tracking-widest uppercase">System.Terminal</span>
+  </div>
+
+  {/* Conteúdo que preenche a tela */}
+  <div className="text-[10px] md:text-[12px] leading-[1.2] break-all select-none">
+    <Typewriter
+      options={{
+        strings: [
+          // Criamos uma string longa repetindo JG DEV com cores diferentes
+          Array(40).fill(null).map(() => 
+            `<span class="text-cyan-500/40">JG_DEV</span> <span class="text-slate-800">0101</span> <span class="text-cyan-900">SYSTEM</span>`
+          ).join(' ') + 
+          `<br/><br/><span class="text-white font-bold bg-cyan-600 px-2">WHOAMI: JOAO GUSTAVO</span><br/><br/>` +
+          Array(40).fill(null).map(() => 
+            `<span class="text-slate-800">0110</span> <span class="text-cyan-500/40">JG_DEV</span>`
+          ).join(' ')
+        ],
+        autoStart: true,
+        loop: true,
+        delay: 1, // Velocidade máxima para parecer que o sistema está "carregando"
+        cursor: '█',
+        wrapperClassName: "opacity-80"
+      }}
+    />
+  </div>
+
+  {/* Overlay de Scanlines e Brilho para dar profundidade */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_2px,3px_100%] pointer-events-none" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none" />
+
+  {/* O "JG" grande que aparece sutilmente por cima de tudo no centro */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <span className="text-white/10 font-black text-9xl tracking-tighter">JG</span>
+  </div>
+</div>
       </motion.div>
         </div>
       </div>
