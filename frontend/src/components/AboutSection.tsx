@@ -49,47 +49,69 @@ export const AboutSection = () => {
         viewport={{ once: true }}
         className="relative"
         >
-        <div className="aspect-square rounded-3xl overflow-hidden border-2 border-slate-800 bg-black p-4 font-mono relative z-10 group">
+
+<div className="aspect-square rounded-3xl overflow-hidden border-2 border-slate-800 bg-black p-4 font-mono relative z-10 group">
   
-  {/* Header do Terminal (Botões de fechar/minimizar) */}
+  {/* Header do Terminal */}
   <div className="flex gap-1.5 mb-3 border-b border-slate-900 pb-2">
     <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
     <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
-    <span className="text-[10px] text-slate-700 ml-2 tracking-widest uppercase">System.Terminal</span>
+    <span className="text-[10px] text-slate-700 ml-2 tracking-widest uppercase">kali@jg-lab:~</span>
   </div>
 
-  {/* Conteúdo que preenche a tela */}
-  <div className="text-[10px] md:text-[12px] leading-[1.2] break-all select-none">
+  {/* Conteúdo Matrix + WHOAMI + Kali Info */}
+  <div className="text-[10px] md:text-[11px] leading-[1.2] break-all select-none">
     <Typewriter
       options={{
         strings: [
-          // Criamos uma string longa repetindo JG DEV com cores diferentes
-          Array(40).fill(null).map(() => 
-            `<span class="text-cyan-500/40">JG_DEV</span> <span class="text-slate-800">0101</span> <span class="text-cyan-900">SYSTEM</span>`
+          // Fundo de código repetido
+          Array(30).fill(null).map(() => 
+            `<span class="text-cyan-900/30">JG_DEV</span> <span class="text-slate-900">0101</span>`
           ).join(' ') + 
-          `<br/><br/><span class="text-white font-bold bg-cyan-600 px-2">WHOAMI: JOAO GUSTAVO</span><br/><br/>` +
-          Array(40).fill(null).map(() => 
-            `<span class="text-slate-800">0110</span> <span class="text-cyan-500/40">JG_DEV</span>`
+          
+          // Informações do Kali Linux no terminal
+          `<br/><br/>` +
+          `<span class="text-cyan-500">[ SYSTEM INFO ]</span><br/>` +
+          `<span class="text-slate-400">OS:</span> <span class="text-white">Kali GNU/Linux Rolling</span><br/>` +
+          `<span class="text-slate-400">KERNEL:</span> <span class="text-white">6.1.0-kali-amd64</span><br/>` +
+          `<span class="text-slate-400">SHELL:</span> <span class="text-white">zsh 5.9</span><br/><br/>` +
+          
+          // Bloco WHOAMI em destaque
+          `<span class="text-white font-bold bg-cyan-600 px-2 uppercase">WHOAMI: JOAO GUSTAVO</span><br/><br/>` +
+          
+          // Mais fundo de código para fechar
+          Array(30).fill(null).map(() => 
+            `<span class="text-slate-900">0110</span> <span class="text-cyan-900/30">JG_DEV</span>`
           ).join(' ')
         ],
         autoStart: true,
         loop: true,
-        delay: 1, // Velocidade máxima para parecer que o sistema está "carregando"
+        delay: 1, 
         cursor: '█',
         wrapperClassName: "opacity-80"
       }}
     />
   </div>
 
-  {/* Overlay de Scanlines e Brilho para dar profundidade */}
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_2px,3px_100%] pointer-events-none" />
-  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none" />
-
-  {/* O "JG" grande que aparece sutilmente por cima de tudo no centro */}
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <span className="text-white/10 font-black text-9xl tracking-tighter">JG</span>
+  {/* ELEMENTO CENTRAL: JG + LOGO KALI (Sutil) */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20">
+    <span className="text-white/5 font-black text-9xl tracking-tighter">
+      JG
+    </span>
+    {/* Logo Kali Linux */}
+    <div className="flex items-center gap-2 mt-[-20px] opacity-10 group-hover:opacity-40 transition-opacity duration-700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-cyan-500">
+        <path d="M12 2L10.5 8.5L4 10L10 12L9 22L12 16L15 22L14 12L20 10L13.5 8.5L12 2Z" />
+      </svg>
+      <span className="text-[9px] font-mono tracking-[0.4em] text-cyan-500 uppercase font-bold">
+        Kali Linux Verified
+      </span>
+    </div>
   </div>
+
+  {/* Overlay de Scanlines (Efeito TV antiga) */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[size:100%_2px,3px_100%] pointer-events-none z-30" />
 </div>
       </motion.div>
         </div>
