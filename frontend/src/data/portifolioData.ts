@@ -85,7 +85,7 @@ export const projects = [
     description: "Sistema full-stack focado em segurança, implementando controle de acesso baseado em funções (RBAC), autenticação robusta e gestão modular de uploads de ficheiros.",
     tags: ["Node.js", "Express", "RBAC", "JWT", "Multer"],
     repoUrl: "https://github.com/Joaokenehen/atividade5_tpi4",
-    servicesUrl: "#", // Botão de serviços oculto
+    servicesUrl: "#",
     date: "2024-04-05"
   },
   
