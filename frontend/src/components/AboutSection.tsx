@@ -28,7 +28,7 @@ export const AboutSection = () => {
                     Minha jornada na tecnologia começou com a curiosidade de entender como as coisas funcionam "por baixo do capô". O que era apenas um hobby se transformou em uma paixão por criar soluções que impactam pessoas.
                 </p>
                 <p>
-                    Além do desenvolvimento, sou um entusiasta da área de <strong>Cybersegurança</strong>. Atualmente, dedico parte do meu tempo explorando o universo <strong>Linux</strong> e aprendendo técnicas de <strong>Pentesting</strong> e hacking ético. Acredito que entender como sistemas são testados e protegidos me torna um desenvolvedor muito mais consciente e preparado em seus projetos.
+                    Além do desenvolvimento, sou um entusiasta da área de <strong>Cybersegurança</strong>. Atualmente, dedico parte do meu tempo explorando o universo <strong>Linux</strong> e aprendendo técnicas de <strong>Pentesting</strong> e hacking ético. Acredito que entender como sistemas são testados e protegidos me torna um desenvolvedor muito mais consciente e preparado.
                 </p>
                 <p>
                     Hoje, foco em desenvolver aplicações web de alta performance, unindo um design intuitivo com arquiteturas de código limpas e escaláveis. Acredito que a tecnologia deve ser uma ponte para resolver problemas reais.
