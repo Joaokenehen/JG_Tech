@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { AboutSection } from '../components/AboutSection';
 import { TechSection } from '../components/TechSection';
 import { ProjectsSection } from '../components/ProjectsSection';
+import Hero from '../assets/Hero.jpg'
 
 export default function Portfolio() {
 
@@ -50,7 +51,7 @@ export default function Portfolio() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-50 animate-pulse" />
             <img 
-              src="https://media.licdn.com/dms/image/v2/D4D03AQG3JV95Ng5_Ig/profile-displayphoto-scale_200_200/B4DZfpq5qzGgAg-/0/1751972028042?e=1772668800&v=beta&t=9Hs5RXX3yXAi0vZ6fISXK2TRPw6wjyfinqWNff9yF2w" 
+              src={Hero} 
               alt="João Gustavo" 
               className="relative w-full h-full rounded-full border-4 border-slate-900 object-cover shadow-2xl"
             />
