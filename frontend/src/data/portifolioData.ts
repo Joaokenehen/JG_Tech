@@ -50,9 +50,18 @@ export const projects = [
     badge: "Enterprise Architecture",
     description: "Sistema WMS de alta complexidade para gestão de insumos agrícolas. Utiliza arquitetura de microserviços distribuídos com foco em rastreabilidade de lotes, performance com Redis e monitoramento via Prometheus/Grafana.",
     tags: ["Microservices", "TypeScript", "Docker", "DDD", "Redis", "PostgreSQL"],
-    repoUrl: "https://github.com/Joaokenehen/Estoque_Raiz", // Confirme se o nome do repo está correto
-    servicesUrl: "#", // Mantemos oculto como os outros repositórios
+    repoUrl: "https://github.com/Joaokenehen/Estoque_Raiz", 
+    servicesUrl: "#", 
     date: "2024-05-20"
+  },
+  {
+    title: "Estoque Raiz - Web App",
+    badge: "Frontend Specialist",
+    description: "Interface moderna do sistema WMS para gestão de insumos agrícolas. Focada em dashboards dinâmicos, controle de inventário em tempo real e alta fidelidade visual com React e Tailwind.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+    repoUrl: "https://github.com/Joaokenehen/EstoqueRaizWeb", 
+    servicesUrl: "#",
+    date: "2024-05-25"
   },
   {
     title: "PetWorking",
@@ -60,7 +69,7 @@ export const projects = [
     description: "Sistema completo de gestão para Pet Shops que une e-commerce e agendamento de serviços. Inclui controle de estoque, perfis de pets, autenticação JWT e uma arquitetura robusta com Node.js, React e MySQL.",
     tags: ["React", "Node.js", "MySQL", "Docker", "TypeScript", "Sequelize"],
     repoUrl: "https://github.com/LucasSC98/Pet-Working",
-    servicesUrl: "#", // Mantemos oculto como os outros repositórios
+    servicesUrl: "#", 
     date: "2024-06-15"
   },
   {
