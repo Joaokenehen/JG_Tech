@@ -5,11 +5,11 @@ import { TechSection } from '../components/TechSection';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { HeroSection } from '../components/HeroSection';
 import { ExperienceSection } from '../components/ExperienceSection';
+import { LanguageProvider } from '../context/LanguageContext';
 
 export default function Portfolio() {
-
-
   return (
+    <LanguageProvider>
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
 
       {/* --- HEADER --- */}
@@ -42,5 +42,6 @@ export default function Portfolio() {
         </p>
       </footer>
     </div>
+    </LanguageProvider>
   );
 }

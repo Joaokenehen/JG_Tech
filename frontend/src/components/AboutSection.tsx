@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 import kali from '../assets/kali-linux-logo.png'; // Certifique-se de que o caminho para a imagem está correto
+import { useLanguage } from '../context/LanguageContext';
 
 export const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-24 px-6 bg-slate-950 relative">
       <div className="max-w-6xl mx-auto">
@@ -16,30 +19,24 @@ export const AboutSection = () => {
           >
             <div className="flex items-center gap-3 text-cyan-500 mb-2">
               <User size={28} />
-              <span className="font-mono tracking-widest uppercase text-sm">Minha História</span>
+              <span className="font-mono tracking-widest uppercase text-sm">{t('about.tag')}</span>
             </div>
             
             <h2 className="text-4xl font-bold text-white">
-              Transformando ideias em <span className="text-cyan-500">realidade digital</span>
+              {t('about.title')} <span className="text-cyan-500">{t('about.titleHighlight')}</span>
             </h2>
             
             <div className="space-y-4 text-slate-400 leading-relaxed">
-                <p>
-                    Minha jornada na tecnologia começou com a curiosidade de entender como as coisas funcionam "por baixo do capô". O que era apenas um hobby se transformou em uma paixão por criar soluções que impactam pessoas.
-                </p>
-                <p>
-                    Além do desenvolvimento, sou um entusiasta da área de <strong>Cybersegurança</strong>. Atualmente, dedico parte do meu tempo explorando o universo <strong>Linux</strong> e aprendendo técnicas de <strong>Pentesting</strong> e hacking ético. Acredito que entender como sistemas são testados e protegidos me torna um desenvolvedor muito mais consciente e preparado.
-                </p>
-                <p>
-                    Hoje, foco em desenvolver aplicações web de alta performance, unindo um design intuitivo com arquiteturas de código limpas e escaláveis. Acredito que a tecnologia deve ser uma ponte para resolver problemas reais.
-                </p>
+                <p>{t('about.p1')}</p>
+                <p dangerouslySetInnerHTML={{ __html: t('about.p2') }} />
+                <p>{t('about.p3')}</p>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Badge title="1+" subtitle="Anos de Exp." />
-              <Badge title="15+" subtitle="Projetos" />
-              <Badge title="Cyber" subtitle="Security Student" highlight />
-              <Badge title="ADS" subtitle='developer student' highlight />
+              <Badge title="1+" subtitle={t('about.badges.exp')} />
+              <Badge title="15+" subtitle={t('about.badges.proj')} />
+              <Badge title="Cyber" subtitle={t('about.badges.cyber')} highlight />
+              <Badge title="ADS" subtitle={t('about.badges.ads')} highlight />
             </div>
           </motion.div>
 

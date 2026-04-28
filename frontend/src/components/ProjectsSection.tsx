@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronLeft, ChevronRight, LayoutGrid, Square } from 'lucide-react';
 import { projects } from '../data/portifolioData';
 import { ProjectCard } from './ProjectCard';
+import { useLanguage } from '../context/LanguageContext';
 
 export const ProjectsSection = () => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'single' | 'grid'>('single');
@@ -37,7 +39,7 @@ export const ProjectsSection = () => {
         {/* CABEÇALHO E CONTROLES */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
           <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-            <div className="w-10 h-1 bg-cyan-500 rounded-full" /> Projetos
+            <div className="w-10 h-1 bg-cyan-500 rounded-full" /> {t('projects.title')}
           </h2>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -46,16 +48,16 @@ export const ProjectsSection = () => {
               <button 
                 onClick={() => setViewMode('single')}
                 className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-bold uppercase transition-all ${viewMode === 'single' ? 'bg-cyan-500 text-white' : 'text-slate-500 hover:text-slate-300'}`}
-                title="Ver um por vez"
+                title={t('projects.focus')}
               >
-                <Square size={14} /> Foco
+                <Square size={14} /> {t('projects.focus')}
               </button>
               <button 
                 onClick={() => setViewMode('grid')}
                 className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-bold uppercase transition-all ${viewMode === 'grid' ? 'bg-cyan-500 text-white' : 'text-slate-500 hover:text-slate-300'}`}
-                title="Ver todos"
+                title={t('projects.grid')}
               >
-                <LayoutGrid size={14} /> Grid
+                <LayoutGrid size={14} /> {t('projects.grid')}
               </button>
             </div>
 
@@ -64,7 +66,7 @@ export const ProjectsSection = () => {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-cyan-400 transition-colors" />
               <input 
                 type="text"
-                placeholder="Nome ou tecnologia..."
+                placeholder={t('projects.search')}
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -122,7 +124,7 @@ export const ProjectsSection = () => {
           ) : (
             /* ESTADO VAZIO */
             <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20 bg-slate-900/20 rounded-3xl border border-dashed border-slate-800">
-              <p className="text-slate-500">Nenhum projeto encontrado com "{searchTerm}"</p>
+              <p className="text-slate-500">{t('projects.notFound')} "{searchTerm}"</p>
             </motion.div>
           )}
         </AnimatePresence>

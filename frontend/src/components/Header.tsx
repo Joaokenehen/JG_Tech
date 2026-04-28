@@ -1,17 +1,20 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrollingFromClick, setIsScrollingFromClick] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   const navItems = [
-    { name: 'Contato', mobileName: 'Contato', href: '#contact' },
-    { name: 'Sobre', mobileName: 'Sobre', href: '#about' },
-    { name: 'Tecnologias', mobileName: 'Tecs', href: '#tech' }, 
-    { name: 'Projetos', mobileName: 'Projs', href: '#projects' },
-    { name: 'Email', mobileName: 'Email', href: '#email'}
+    { name: t('header.contact'), mobileName: t('header.contact'), href: '#contact' },
+    { name: t('header.about'), mobileName: t('header.about'), href: '#about' },
+    { name: t('header.techs'), mobileName: t('header.techs'), href: '#tech' }, 
+    { name: t('header.projects'), mobileName: t('header.projects'), href: '#projects' },
+    { name: t('header.email'), mobileName: t('header.email'), href: '#email'}
   ];
 
   const handleNavLinkClick = () => {
@@ -75,6 +78,15 @@ export const Header = () => {
               <span className="hidden md:inline">{item.name}</span>
             </a>
           ))}
+
+          {/* Botão de Idioma */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 ml-2 text-[10px] md:text-xs font-bold text-cyan-500 hover:text-cyan-400 transition-colors uppercase bg-slate-800/50 px-2 py-1.5 md:px-3 rounded-lg border border-slate-700"
+          >
+            <Globe size={14} />
+            {language === 'pt' ? 'EN' : 'PT'}
+          </button>
         </div>
       </nav>
     </motion.header>

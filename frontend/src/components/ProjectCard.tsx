@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, ExternalLink} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectCardProps {
   title: string;
@@ -14,6 +15,8 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ 
   title, description, tags, repoUrl, servicesUrl, badge 
 }) => {
+  const { t } = useLanguage();
+
   return (
     <motion.div 
       whileHover={{ scale: 1.01 }}
@@ -54,7 +57,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 to={servicesUrl}
                 className="flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-950 font-black rounded-2xl hover:bg-cyan-500 hover:text-white transition-all shadow-xl shadow-white/5"
               >
-                Ver Serviços <ChevronRight size={20} />
+                {t('projects.viewServices')} <ChevronRight size={20} />
               </Link>
             )}
             
@@ -64,7 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-slate-300 font-bold rounded-2xl hover:bg-slate-800 transition-all border border-slate-800"
             >
-              Repositório <ExternalLink size={18} />
+              {t('projects.repository')} <ExternalLink size={18} />
             </a>
           </div>
         </div>

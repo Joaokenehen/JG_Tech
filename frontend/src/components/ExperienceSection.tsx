@@ -1,57 +1,59 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Wrench, Code, Shield, ChevronDown, ChevronUp } from 'lucide-react';
-
-const experiences = [
-  {
-    id: 1,
-    year: "O Início",
-    title: "Estudando linguagem C",
-    company: "Estudante Engenharia Eletrônica UTFPR",
-    description: "Tudo começou quando vi programação pela primeira vez na UTFPR. A linguagem C me fascinou por sua proximidade com o hardware e a capacidade de criar sistemas eficientes do zero.",
-    icon: <Wrench size={20} />,
-    tech: ["Programming", "C"]
-  },
-  {
-    id: 2,
-    year: "2025 - Presente",
-    title: "Estudante de T.A.D.S",
-    company: "Análise e Desenvolvimento de Sistemas",
-    description: "Aprofundamento acadêmico em arquiteturas de software, lógica de programação avançada e padrões de projeto.",
-    icon: <Terminal size={20} />,
-    tech: ["Lógica", "Arquitetura", "Engenharia de Software"]
-  },
-  {
-    id: 3,
-    year: "2025 - Presente",
-    title: "Desenvolvedor Full Stack Autônomo",
-    company: "Projetos Freelance & Enterprise",
-    description: "Desenvolvimento de sistemas escaláveis e de alta complexidade (como o WMS Estoque Raiz e o JGTech Brasil). Foco em microserviços, performance com Redis e interfaces modernas. Cada vez mais aprendendo novas linguagens para aprofundar minha visão de software e arquitetura.",
-    icon: <Code size={20} />,
-    tech: ["React", "Node.js", "Java", "TypeScript", "React Native"]
-  },
-  {
-    id: 4,
-    year: "2026 - Presente",
-    title: "Entusiasta em Segurança Ofensiva",
-    company: "Estudos em Cybersegurança",
-    description: "Exploração de vulnerabilidades web (como falhas IDOR), uso de ferramentas do Kali Linux e foco em construir aplicações blindadas desde o código fonte.",
-    icon: <Shield size={20} />,
-    tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
-  },
-  {
-    id: 5,
-    year: "2025 - Presente",
-    title: "Inicio da carreira de TI",
-    company: "Expresso Nordeste - TI",
-    description: "Atuação em suporte técnico, manutenção de hardware e software, além de desenvolvimento de sistemas internos para otimizar processos logísticos. Essa experiência me proporcionou uma visão prática do impacto da tecnologia no mundo real e a importância de soluções eficientes.",
-    icon: <Terminal size={20} />,
-    tech: ["Suporte Técnico", "Manutenção de Hardware", "Desenvolvimento Interno"]
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export const ExperienceSection = () => {
+  const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
+
+  const experiences = [
+    {
+      id: 1,
+      year: t('experience.item1.year'),
+      title: t('experience.item1.title'),
+      company: t('experience.item1.company'),
+      description: t('experience.item1.description'),
+      icon: <Wrench size={20} />,
+      tech: ["Programming", "C"]
+    },
+    {
+      id: 2,
+      year: t('experience.item2.year'),
+      title: t('experience.item2.title'),
+      company: t('experience.item2.company'),
+      description: t('experience.item2.description'),
+      icon: <Terminal size={20} />,
+      tech: ["Lógica", "Arquitetura", "Engenharia de Software"]
+    },
+    {
+      id: 3,
+      year: t('experience.item3.year'),
+      title: t('experience.item3.title'),
+      company: t('experience.item3.company'),
+      description: t('experience.item3.description'),
+      icon: <Code size={20} />,
+      tech: ["React", "Node.js", "Java", "TypeScript", "React Native"]
+    },
+    {
+      id: 4,
+      year: t('experience.item4.year'),
+      title: t('experience.item4.title'),
+      company: t('experience.item4.company'),
+      description: t('experience.item4.description'),
+      icon: <Shield size={20} />,
+      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
+    },
+    {
+      id: 5,
+      year: t('experience.item5.year'),
+      title: t('experience.item5.title'),
+      company: t('experience.item5.company'),
+      description: t('experience.item5.description'),
+      icon: <Terminal size={20} />,
+      tech: ["Suporte Técnico", "Manutenção de Hardware", "Desenvolvimento Interno"]
+    }
+  ];
   
   const INITIAL_COUNT = 3;
   const visibleExperiences = showAll ? experiences : experiences.slice(0, INITIAL_COUNT);
@@ -63,9 +65,9 @@ export const ExperienceSection = () => {
         {/* Cabeçalho */}
         <div className="flex flex-col items-center mb-16 text-center">
           <Terminal className="text-cyan-500 w-12 h-12 mb-4" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Trilha de Evolução</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{t('experience.title')}</h2>
           <p className="text-slate-500 mt-2 max-w-lg">
-            Do hardware ao código, construindo uma base sólida para resolver problemas reais.
+            {t('experience.subtitle')}
           </p>
         </div>
 
@@ -160,9 +162,9 @@ export const ExperienceSection = () => {
                 className="flex items-center gap-2 px-8 py-3 rounded-full border border-cyan-500/30 text-cyan-400 font-bold bg-slate-950 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95"
               >
                 {showAll ? (
-                  <>Ver Menos <ChevronUp size={18} /></>
+                  <>{t('experience.showLess')} <ChevronUp size={18} /></>
                 ) : (
-                  <>Ver Histórico Completo <ChevronDown size={18} /></>
+                  <>{t('experience.showMore')} <ChevronDown size={18} /></>
                 )}
               </button>
             </div>
