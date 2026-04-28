@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Hero from '../assets/Hero.jpg';
 import { SocialButton } from './SocialButtons';
 import { useLanguage } from '../context/LanguageContext';
