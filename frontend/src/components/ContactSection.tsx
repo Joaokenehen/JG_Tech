@@ -3,18 +3,16 @@ import { Mail, Send, Check } from 'lucide-react';
 import { useState } from 'react';
 
 export const ContactSection = () => {
-  const email = "joao_quennehen@outlook.com";
+  const email = "joaokenehen.dev@outlook.com";
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    // RESTRICÃO: Se já estiver no estado 'copiado', ignora novos cliques
-    // Isso evita processamento desnecessário e "spam" de cliques
+
     if (copied) return;
 
     navigator.clipboard.writeText(email);
     setCopied(true);
 
-    // Tempo de "Cooldown" (Resfriamento) de 2 segundos
     setTimeout(() => {
       setCopied(false);
     }, 2000);

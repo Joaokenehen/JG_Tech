@@ -71,7 +71,6 @@ export const HeroSection = () => {
         >
           <SocialButton href="https://github.com/Joaokenehen" icon={<FaGithub />} label="GitHub" />
           <SocialButton href="https://www.linkedin.com/in/joao-gustavo-quennehen" icon={<FaLinkedin />} label="LinkedIn" />
-          <SocialButton href="https://wa.me/5544997025387" icon={<FaWhatsapp />} label="WhatsApp" />
         </motion.div>
       </div>
     </section>

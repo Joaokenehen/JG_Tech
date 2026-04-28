@@ -4,6 +4,7 @@ import { AboutSection } from '../components/AboutSection';
 import { TechSection } from '../components/TechSection';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { HeroSection } from '../components/HeroSection';
+import { ExperienceSection } from '../components/ExperienceSection';
 
 export default function Portfolio() {
 
@@ -19,6 +20,9 @@ export default function Portfolio() {
 
       {/* --- SEÇÃO SOBRE MIM --- */}
       <AboutSection />
+
+      {/* --- EXPERIÊNCIA --- */}
+      <ExperienceSection />
 
       {/* --- 2. TECH STACK --- */}
       <TechSection />

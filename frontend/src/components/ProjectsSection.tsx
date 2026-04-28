@@ -8,8 +8,7 @@ export const ProjectsSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'single' | 'grid'>('single');
-
-  // Lógica de filtro: Busca por Título e por Tags (Tecnologias)
+  
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       const search = searchTerm.toLowerCase();
