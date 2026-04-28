@@ -4,8 +4,10 @@ import { Code2, LayoutGrid, Globe2 } from 'lucide-react';
 import { TechSphere } from './TechSphere';
 import { TechCard } from './TechCard';
 import { techStack } from '../data/portifolioData';
+import { useLanguage } from '../context/LanguageContext';
 
 export const TechSection = () => {
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState<'sphere' | 'grid'>('sphere');
   const [showAllTechMobile, setShowAllTechMobile] = useState(false);
 
@@ -17,10 +19,10 @@ export const TechSection = () => {
         <div className="flex flex-col items-center mb-16 text-center">
           <Code2 className="text-cyan-500 w-12 h-12 mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Stack Tecnológica
+            {t('tech.title')}
           </h2>
           <p className="text-slate-500 mt-2 max-w-lg">
-            Tecnologias que utilizo para dar vida a projetos de alta performance.
+            {t('tech.subtitle')}
           </p>
 
           {/* Botão de Alternar Visualização (Apenas Desktop) */}
@@ -31,12 +33,12 @@ export const TechSection = () => {
             {viewMode === 'sphere' ? (
               <>
                 <LayoutGrid size={18} className="group-hover:rotate-12 transition-transform" />
-                <span className="text-sm font-medium">Ver todas em lista</span>
+                <span className="text-sm font-medium">{t('tech.viewList')}</span>
               </>
             ) : (
               <>
                 <Globe2 size={18} className="group-hover:animate-spin-slow" />
-                <span className="text-sm font-medium">Voltar para o Globo</span>
+                <span className="text-sm font-medium">{t('tech.viewGlobe')}</span>
               </>
             )}
           </button>
@@ -85,7 +87,7 @@ export const TechSection = () => {
                   onClick={() => setShowAllTechMobile(!showAllTechMobile)}
                   className="px-6 py-2 rounded-full border border-cyan-500/50 text-cyan-400 font-bold text-sm bg-cyan-500/10 hover:bg-cyan-500/20 transition-all active:scale-95"
                 >
-                  {showAllTechMobile ? 'Mostrar Menos' : 'Ver Todas'}
+                  {showAllTechMobile ? t('tech.showLess') : t('tech.showAll')}
                 </button>
               </div>
             </div>

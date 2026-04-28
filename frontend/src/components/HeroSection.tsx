@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import Hero from '../assets/Hero.jpg';
 import { SocialButton } from './SocialButtons';
+import { useLanguage } from '../context/LanguageContext';
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative flex flex-col items-center justify-center min-h-[65vh] pt-32 pb-12 px-6 text-center">
       
@@ -59,7 +62,7 @@ export const HeroSection = () => {
             João <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Gustavo</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl text-shadow-sm">
-            Desenvolvedor <span className="text-white font-semibold">Full Stack</span> especializado em criar experiências digitais escaláveis e arquitetura moderna.
+            {t('hero.role')} <span className="text-white font-semibold">{t('hero.highlight')}</span> {t('hero.description')}
           </p>
         </motion.div>
 
@@ -71,7 +74,6 @@ export const HeroSection = () => {
         >
           <SocialButton href="https://github.com/Joaokenehen" icon={<FaGithub />} label="GitHub" />
           <SocialButton href="https://www.linkedin.com/in/joao-gustavo-quennehen" icon={<FaLinkedin />} label="LinkedIn" />
-          <SocialButton href="https://wa.me/5544997025387" icon={<FaWhatsapp />} label="WhatsApp" />
         </motion.div>
       </div>
     </section>
