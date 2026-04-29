@@ -36,15 +36,6 @@ export const ExperienceSection = () => {
       tech: ["React", "Node.js", "Java", "TypeScript", "React Native"]
     },
     {
-      id: 4,
-      year: t('experience.item4.year'),
-      title: t('experience.item4.title'),
-      company: t('experience.item4.company'),
-      description: t('experience.item4.description'),
-      icon: <Shield size={20} />,
-      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
-    },
-    {
       id: 5,
       year: t('experience.item5.year'),
       title: t('experience.item5.title'),
@@ -52,7 +43,16 @@ export const ExperienceSection = () => {
       description: t('experience.item5.description'),
       icon: <Terminal size={20} />,
       tech: ["Suporte Técnico", "Manutenção de Hardware", "Desenvolvimento Interno"]
-    }
+    },
+    {
+      id: 6,
+      year: t('experience.item4.year'),
+      title: t('experience.item4.title'),
+      company: t('experience.item4.company'),
+      description: t('experience.item4.description'),
+      icon: <Shield size={20} />,
+      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
+    },
   ];
   
   const INITIAL_COUNT = 3;
@@ -95,15 +95,15 @@ export const ExperienceSection = () => {
                       <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                     </div>
 
-                    {/* Lado Esquerdo (Vazio se for ímpar no desktop) */}
-                    <div className={`md:w-[45%] pl-16 md:pl-0 ${isEven ? 'md:text-right md:pr-12' : 'md:hidden'}`}>
+                    {/* Lado Esquerdo (Desktop) */}
+                    <div className={`hidden md:block w-[45%] pr-12 text-right ${isEven ? '' : 'opacity-0'}`}>
                       {isEven && (
                         <>
                           <span className="text-cyan-500 font-mono text-sm font-bold tracking-widest">{exp.year}</span>
                           <h3 className="text-xl font-bold text-white mt-1">{exp.title}</h3>
                           <p className="text-slate-400 text-sm font-medium mt-1">{exp.company}</p>
                           <p className="text-slate-500 mt-4 text-sm leading-relaxed">{exp.description}</p>
-                          <div className={`flex flex-wrap gap-2 mt-4 ${isEven ? 'md:justify-end' : ''}`}>
+                          <div className="flex flex-wrap gap-2 mt-4 justify-end">
                             {exp.tech.map(t => (
                               <span key={t} className="text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-slate-800/50 border border-slate-700 text-slate-300 rounded-md">
                                 {t}
@@ -114,8 +114,8 @@ export const ExperienceSection = () => {
                       )}
                     </div>
 
-                    {/* Lado Direito (Vazio se for par no desktop) */}
-                    <div className={`md:w-[45%] pl-16 md:pl-12 ${!isEven ? '' : 'hidden md:block md:opacity-0'}`}>
+                    {/* Lado Direito (Desktop) */}
+                    <div className={`hidden md:block w-[45%] pl-12 ${!isEven ? '' : 'opacity-0'}`}>
                       {!isEven && (
                         <>
                           <span className="text-cyan-500 font-mono text-sm font-bold tracking-widest">{exp.year}</span>
