@@ -36,15 +36,6 @@ export const ExperienceSection = () => {
       tech: ["React", "Node.js", "Java", "TypeScript", "React Native"]
     },
     {
-      id: 4,
-      year: t('experience.item4.year'),
-      title: t('experience.item4.title'),
-      company: t('experience.item4.company'),
-      description: t('experience.item4.description'),
-      icon: <Shield size={20} />,
-      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
-    },
-    {
       id: 5,
       year: t('experience.item5.year'),
       title: t('experience.item5.title'),
@@ -52,7 +43,16 @@ export const ExperienceSection = () => {
       description: t('experience.item5.description'),
       icon: <Terminal size={20} />,
       tech: ["Suporte Técnico", "Manutenção de Hardware", "Desenvolvimento Interno"]
-    }
+    },
+    {
+      id: 6,
+      year: t('experience.item4.year'),
+      title: t('experience.item4.title'),
+      company: t('experience.item4.company'),
+      description: t('experience.item4.description'),
+      icon: <Shield size={20} />,
+      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
+    },
   ];
   
   const INITIAL_COUNT = 3;
