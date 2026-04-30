@@ -82,7 +82,7 @@ export const Header = () => {
           {/* Botão de Idioma */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 ml-2 text-[10px] md:text-xs font-bold text-cyan-500 hover:text-cyan-400 transition-colors uppercase bg-slate-800/50 px-2 py-1.5 md:px-3 rounded-lg border border-slate-700"
+            className="flex items-center gap-1.5 ml-2 text-[10px] md:text-xs font-bold text-cyan-500 hover:text-cyan-300 transition-all duration-300 uppercase bg-slate-800/50 hover:bg-slate-700 active:scale-95 px-2 py-1.5 md:px-3 rounded-lg border border-slate-700 hover:border-cyan-500/50 cursor-pointer shadow-md hover:shadow-[0_0_10px_rgba(6,182,212,0.3)]"
           >
             <Globe size={14} />
             {language === 'pt' ? 'EN' : 'PT'}
