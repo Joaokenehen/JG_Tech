@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import Hero from '../assets/Hero.jpg';
 import { SocialButton } from './SocialButtons';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -45,11 +44,14 @@ export const HeroSection = () => {
           className="relative w-36 h-36 md:w-48 md:h-48"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-50 animate-pulse" />
-          <img 
-            src={Hero} 
-            alt="João Gustavo" 
-            className="relative w-full h-full rounded-full border-4 border-slate-900 object-cover shadow-2xl"
-          />
+          <div 
+            aria-hidden="true"
+            className="relative w-full h-full rounded-full border-4 border-slate-900 bg-gradient-to-br from-cyan-500/70 via-slate-900 to-slate-950 shadow-2xl flex items-center justify-center"
+          >
+            <span className="text-xs md:text-sm uppercase tracking-[0.35em] text-white opacity-90">
+              {t('hero.welcome')}
+            </span>
+          </div>
         </motion.div>
 
         <motion.div 
