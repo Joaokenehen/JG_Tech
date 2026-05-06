@@ -34,7 +34,6 @@ export default function App() {
     }
   ];
 
-  // Configuração do botão de Portfólio com as cores nativas (Ciano/Azulado)
   const navigationLinks = [
     {
       name: "Conhecer meu Portfólio",
@@ -86,7 +85,7 @@ export default function App() {
         ))}
       </div>
 
-      {/* SOBRE MIM (Cores Nativas Cyan/Azulado) */}
+      {/* SOBRE MIM */}
       <div className="w-full max-w-md flex flex-col gap-4 mb-8">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-2" />
         <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] ml-2 mb-1">
