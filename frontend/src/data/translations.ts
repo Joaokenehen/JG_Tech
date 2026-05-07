@@ -22,7 +22,8 @@ export const translations = {
     hero: {
       role: "Desenvolvedor",
       highlight: "Full Stack",
-      description: "especializado em criar experiências digitais escaláveis e arquitetura moderna."
+      description: "especializado em criar experiências digitais escaláveis e arquitetura moderna.",
+      welcome: "Bem-vindo"
     },
     about: {
       tag: "Minha História",
@@ -92,7 +93,8 @@ export const translations = {
     hero: {
       role: "Developer",
       highlight: "Full Stack",
-      description: "specialized in creating scalable digital experiences and modern architecture."
+      description: "specialized in creating scalable digital experiences and modern architecture.",
+      welcome: "Welcome"
     },
     about: {
       tag: "My Story",
