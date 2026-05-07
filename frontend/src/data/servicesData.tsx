@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { Settings, HardDrive, Monitor, Globe } from 'lucide-react';
+import { Settings, HardDrive, Monitor, Globe, Code } from 'lucide-react';
 
 // Definimos o contrato (interface) de como um serviço deve ser
 export interface ServiceData {
@@ -85,6 +85,27 @@ export const servicos: ServiceData[] = [
             <li>Possuir uma conexão estável com a internet.</li>
             <li>Informar o seu <strong>Código de Acesso</strong> ao técnico.</li>
         </ul>
+      </div>
+    </div>
+  )
+},
+{ 
+  name: 'Desenvolvimento Web', 
+  desc: 'Sistemas sob medida e Landing Pages para destacar seu negócio.',
+  icon: <Code className="w-8 h-8 text-cyan-400" />,
+  detalhes: (
+    <div className="mt-4 pt-4 border-t border-slate-800 text-base text-slate-300 space-y-4 animate-in fade-in duration-500">
+      <div>
+        <h4 className="font-bold text-cyan-500">Landing Pages Profissionais</h4>
+        <p>Páginas web modernas, totalmente responsivas e focadas em conversão. Ideais para destacar seus produtos, serviços ou campanhas, atraindo novos clientes para o seu negócio.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-cyan-500">Sistemas Web Sob Medida</h4>
+        <p>Soluções personalizadas para resolver os problemas reais da sua empresa. Desenvolvemos desde painéis administrativos e sistemas de gestão até ferramentas para otimizar seus processos internos.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-cyan-500">Alta Performance e SEO</h4>
+        <p>Desenvolvimento focado em velocidade de carregamento, boas práticas de SEO e escalabilidade, garantindo uma excelente experiência de usuário em qualquer dispositivo.</p>
       </div>
     </div>
   )
