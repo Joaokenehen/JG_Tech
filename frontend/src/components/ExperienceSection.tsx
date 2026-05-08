@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Wrench, Code, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 export const ExperienceSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showAll, setShowAll] = useState(false);
+
+  const lang = (language as 'pt' | 'en') || 'pt';
+  const techData = translations[lang].experience;
 
   const experiences = [
     {
@@ -15,7 +19,7 @@ export const ExperienceSection = () => {
       company: t('experience.item1.company'),
       description: t('experience.item1.description'),
       icon: <Wrench size={20} />,
-      tech: ["Programming", "C"]
+      tech: techData.item1.tech
     },
     {
       id: 2,
@@ -24,7 +28,7 @@ export const ExperienceSection = () => {
       company: t('experience.item2.company'),
       description: t('experience.item2.description'),
       icon: <Terminal size={20} />,
-      tech: ["Lógica", "Arquitetura", "Engenharia de Software"]
+      tech: techData.item2.tech
     },
     {
       id: 3,
@@ -33,7 +37,7 @@ export const ExperienceSection = () => {
       company: t('experience.item3.company'),
       description: t('experience.item3.description'),
       icon: <Code size={20} />,
-      tech: ["React", "Node.js", "Java", "TypeScript", "React Native"]
+      tech: techData.item3.tech
     },
     {
       id: 5,
@@ -42,7 +46,7 @@ export const ExperienceSection = () => {
       company: t('experience.item5.company'),
       description: t('experience.item5.description'),
       icon: <Terminal size={20} />,
-      tech: ["Suporte Técnico", "Manutenção de Hardware", "Desenvolvimento Interno"]
+      tech: techData.item5.tech
     },
     {
       id: 6,
@@ -51,7 +55,7 @@ export const ExperienceSection = () => {
       company: t('experience.item4.company'),
       description: t('experience.item4.description'),
       icon: <Shield size={20} />,
-      tech: ["Pentesting", "Kali Linux", "Hacking Ético", "SecDevOps"]
+      tech: techData.item4.tech
     },
   ];
   
