@@ -1,18 +1,21 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronLeft, ChevronRight, LayoutGrid, Square } from 'lucide-react';
-import { projects } from '../data/portifolioData';
 import { ProjectCard } from './ProjectCard';
 import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 export const ProjectsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'single' | 'grid'>('single');
   
+  const lang = (language as 'pt' | 'en') || 'pt';
+  const localizedProjects = translations[lang].projects.items;
+
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
+    return localizedProjects.filter(project => {
       const search = searchTerm.toLowerCase();
       const matchesTitle = project.title.toLowerCase().includes(search);
       const matchesDescription = project.description.toLowerCase().includes(search);
@@ -22,7 +25,7 @@ export const ProjectsSection = () => {
 
       return matchesTitle || matchesTags || matchesDescription;
     });
-  }, [searchTerm]);
+  }, [searchTerm, localizedProjects]);
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
