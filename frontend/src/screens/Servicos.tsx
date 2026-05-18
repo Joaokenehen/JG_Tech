@@ -60,7 +60,7 @@ export default function App() {
              <span className="text-2xl font-bold text-cyan-500 tracking-tighter">JG</span>
           </div>
         </div>
-        <h1 className="text-2xl font-black tracking-tight text-white uppercase text-center">JGKenehen_Tech</h1>
+        <h1 className="text-2xl font-black tracking-tight text-white uppercase text-center">JG_Tech</h1>
         <p className="text-cyan-500 font-medium text-sm tracking-widest uppercase mt-1">Soluções em Hardware</p>
       </div>
 
