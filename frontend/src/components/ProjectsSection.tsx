@@ -4,6 +4,7 @@ import { Search, ChevronLeft, ChevronRight, LayoutGrid, Square } from 'lucide-re
 import { ProjectCard } from './ProjectCard';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
+import { projectsData } from '../data/projectsData';
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -12,10 +13,23 @@ export const ProjectsSection = () => {
   const [viewMode, setViewMode] = useState<'single' | 'grid'>('single');
   
   const lang = (language as 'pt' | 'en') || 'pt';
-  const localizedProjects = translations[lang].projects.items;
+
+  const combinedProjects = useMemo(() => {
+    // Ordena os projetos pela data, do mais recente para o mais antigo
+    const sortedProjects = [...projectsData].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    // Combina os dados estáticos com as traduções
+    return sortedProjects.map(project => {
+      const translatedContent = translations[lang].projects.items[project.id as keyof typeof translations[typeof lang]['projects']['items']];
+      return {
+        ...project, // id, tags, repoUrl, servicesUrl, date
+        ...translatedContent, // title, description, badge
+      };
+    });
+  }, [lang]);
 
   const filteredProjects = useMemo(() => {
-    return localizedProjects.filter(project => {
+    return combinedProjects.filter(project => {
       const search = searchTerm.toLowerCase();
       const matchesTitle = project.title.toLowerCase().includes(search);
       const matchesDescription = project.description.toLowerCase().includes(search);
@@ -25,7 +39,7 @@ export const ProjectsSection = () => {
 
       return matchesTitle || matchesTags || matchesDescription;
     });
-  }, [searchTerm, localizedProjects]);
+  }, [searchTerm, combinedProjects]);
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);

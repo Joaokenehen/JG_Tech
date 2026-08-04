@@ -1,5 +1,5 @@
-import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaWhatsapp, FaJava } from 'react-icons/fa';
-import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub, SiPostman, SiNginx, SiExpress } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaJava } from 'react-icons/fa';
+import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub, SiPostman, SiNginx, SiExpress, SiWireshark, SiKalilinux, SiLinux } from 'react-icons/si';
 
 export const techStack = [
   { name: 'React', icon: FaReact, color: '#61DAFB', shadow: 'shadow-blue-500/20' },
@@ -28,10 +28,12 @@ export const techStack = [
   { name: 'Postman', icon: SiPostman, color: '#FF6C37', shadow: 'shadow-orange-500/20' },
   { name: 'Nginx', icon: SiNginx, color: '#009639', shadow: 'shadow-green-500/20' },
   { name: 'Express', icon: SiExpress, color: '#000000', shadow: 'shadow-black/20' },
+  { name: 'Wireshark', icon: SiWireshark, color: '#1C3A5D', shadow: 'shadow-blue-800/20' },
+  { name: 'Kali Linux', icon: SiKalilinux, color: '#557C94', shadow: 'shadow-blue-700/20' },
+  { name: 'Linux', icon: SiLinux, color: '#FCC624', shadow: 'shadow-yellow-500/20' },
 ];
 
 export const socialLinks = [
   { name: 'GitHub', href:   'https://github.com/Joaokenehen', icon: FaGithub },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/joao-gustavo-quennehen', icon: FaLinkedin },
-  { name: 'WhatsApp', href: 'https://wa.me/5544997025387', icon: FaWhatsapp },
 ];
