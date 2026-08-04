@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Wrench, Code, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,56 +8,57 @@ export const ExperienceSection = () => {
   const { t, language } = useLanguage();
   const [showAll, setShowAll] = useState(false);
 
-  const lang = (language as 'pt' | 'en') || 'pt';
-  const techData = translations[lang].experience;
-
-  const experiences = [
-    {
-      id: 1,
-      year: t('experience.item1.year'),
-      title: t('experience.item1.title'),
-      company: t('experience.item1.company'),
-      description: t('experience.item1.description'),
-      icon: <Wrench size={20} />,
-      tech: techData.item1.tech
-    },
-    {
-      id: 2,
-      year: t('experience.item2.year'),
-      title: t('experience.item2.title'),
-      company: t('experience.item2.company'),
-      description: t('experience.item2.description'),
-      icon: <Terminal size={20} />,
-      tech: techData.item2.tech
-    },
-    {
-      id: 3,
-      year: t('experience.item3.year'),
-      title: t('experience.item3.title'),
-      company: t('experience.item3.company'),
-      description: t('experience.item3.description'),
-      icon: <Code size={20} />,
-      tech: techData.item3.tech
-    },
-    {
-      id: 5,
-      year: t('experience.item5.year'),
-      title: t('experience.item5.title'),
-      company: t('experience.item5.company'),
-      description: t('experience.item5.description'),
-      icon: <Terminal size={20} />,
-      tech: techData.item5.tech
-    },
-    {
-      id: 6,
-      year: t('experience.item4.year'),
-      title: t('experience.item4.title'),
-      company: t('experience.item4.company'),
-      description: t('experience.item4.description'),
-      icon: <Shield size={20} />,
-      tech: techData.item4.tech
-    },
-  ];
+  const experiences = useMemo(() => {
+    const lang = (language as 'pt' | 'en') || 'pt';
+    const techData = translations[lang].experience;
+    return [
+      {
+        id: 1,
+        year: t('experience.item1.year'),
+        title: t('experience.item1.title'),
+        company: t('experience.item1.company'),
+        description: t('experience.item1.description'),
+        icon: <Wrench size={20} />,
+        tech: techData.item1.tech
+      },
+      {
+        id: 2,
+        year: t('experience.item2.year'),
+        title: t('experience.item2.title'),
+        company: t('experience.item2.company'),
+        description: t('experience.item2.description'),
+        icon: <Terminal size={20} />,
+        tech: techData.item2.tech
+      },
+      {
+        id: 3,
+        year: t('experience.item3.year'),
+        title: t('experience.item3.title'),
+        company: t('experience.item3.company'),
+        description: t('experience.item3.description'),
+        icon: <Code size={20} />,
+        tech: techData.item3.tech
+      },
+      {
+        id: 5,
+        year: t('experience.item5.year'),
+        title: t('experience.item5.title'),
+        company: t('experience.item5.company'),
+        description: t('experience.item5.description'),
+        icon: <Terminal size={20} />,
+        tech: techData.item5.tech
+      },
+      {
+        id: 6,
+        year: t('experience.item4.year'),
+        title: t('experience.item4.title'),
+        company: t('experience.item4.company'),
+        description: t('experience.item4.description'),
+        icon: <Shield size={20} />,
+        tech: techData.item4.tech
+      },
+    ];
+  }, [t, language]);
   
   const INITIAL_COUNT = 3;
   const visibleExperiences = showAll ? experiences : experiences.slice(0, INITIAL_COUNT);

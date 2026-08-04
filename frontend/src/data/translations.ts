@@ -61,70 +61,48 @@ export const translations = {
       notFound: "Nenhum projeto encontrado com",
       viewServices: "Ver Serviços",
       repository: "Repositório",
-      items: [
-        {
+      items: {
+        "jgtech-brasil": {
           title: "JGTech Brasil",
           badge: "Case de Sucesso",
           description: "Um ecossistema digital para prestação de serviços de TI. Focado em performance extrema e interface limpa.",
-          tags: ["React", "Node.js", "TypeScript", "Tailwind"],
-          repoUrl: "https://github.com/Joaokenehen/jg_tech",
-          servicesUrl: "/servicos"
         },
-        {
+        "estoque-raiz-wms": {
           title: "Estoque Raiz - WMS",
           badge: "Enterprise Architecture",
           description: "Sistema WMS de alta complexidade para gestão de insumos agrícolas. Utiliza arquitetura de microserviços distribuídos com foco em rastreabilidade de lotes, performance com Redis e monitoramento via Prometheus/Grafana.",
-          tags: ["Microservices", "TypeScript", "Docker", "DDD", "Redis", "PostgreSQL"],
-          repoUrl: "https://github.com/Joaokenehen/Estoque_Raiz", 
-          servicesUrl: "#", 
-          date: "2024-05-20"
         },
-        {
+        "estoque-raiz-webapp": {
           title: "Estoque Raiz - Web App",
           badge: "Frontend Specialist",
           description: "Interface moderna do sistema WMS para gestão de insumos agrícolas. Focada em dashboards dinâmicos, controle de inventário em tempo real e alta fidelidade visual com React e Tailwind.",
-          tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
-          repoUrl: "https://github.com/Joaokenehen/EstoqueRaizWeb", 
-          servicesUrl: "#",
-          date: "2024-05-25"
         },
-        {
+        "petworking": {
           title: "PetWorking",
           badge: "Full Stack Ecosystem",
           description: "Sistema completo de gestão para Pet Shops que une e-commerce e agendamento de serviços. Inclui controle de estoque, perfis de pets, autenticação JWT e uma arquitetura robusta com Node.js, React e MySQL.",
-          tags: ["React", "Node.js", "MySQL", "Docker", "TypeScript", "Sequelize"],
-          repoUrl: "https://github.com/LucasSC98/Pet-Working",
-          servicesUrl: "#", 
-          date: "2024-06-15"
         },
-        {
+        "cardapio-do-paje": {
           title: "Cardápio do Pajé",
           badge: "Full Stack & Mobile",
           description: "Sistema de cardápio digital composto por uma API REST robusta e uma aplicação mobile para pedidos em tempo real. Desenvolvido para otimizar o atendimento de estabelecimentos gastronómicos.",
-          tags: ["React Native", "Node.js", "Express", "Expo"],
-          repoUrl: "https://github.com/Joaokenehen/cardapio-do-paje",
-          servicesUrl: "#", 
-          date: "2024-02-15"
         },
-        {
+        "cardapio-jatos-mobile": {
           title: "Cardápio Jatos Mobile",
           badge: "Mobile Specialist",
           description: "Um catálogo interativo de defesa aérea que permite explorar jatos militares com detalhes técnicos. Focado em UX fluida e alta performance para dispositivos móveis.",
-          tags: ["React Native", "Expo", "TypeScript", "Lucide React"],
-          repoUrl: "https://github.com/Joaokenehen/cardapio-jatos-mobile",
-          servicesUrl: "#", 
-          date: "2024-03-10"
         },
-        {
+        "secure-auth-manager": {
           title: "Secure Auth & File Manager",
           badge: "Security & Backend",
           description: "Sistema full-stack focado em segurança, implementando controle de acesso baseado em funções (RBAC), autenticação robusta e gestão modular de uploads de ficheiros.",
-          tags: ["Node.js", "Express", "RBAC", "JWT", "Multer"],
-          repoUrl: "https://github.com/Joaokenehen/atividade5_tpi4",
-          servicesUrl: "#",
-          date: "2024-04-05"
-        }
-      ]
+        },
+        "simulador-financeiro": {
+          title: "Simulador Financeiro",
+          badge: "Gamificação",
+          description: "Um jogo interativo de educação financeira com sistema de dilemas e ranking. Focado no engajamento do usuário e desenvolvido em stack completa (React e Node.js).",
+        },
+      }
     },
     contact: {
       title: "VAMOS",
@@ -196,70 +174,48 @@ export const translations = {
       notFound: "No project found for",
       viewServices: "View Services",
       repository: "Repository",
-      items: [
-        {
+      items: {
+        "jgtech-brasil": {
           title: "JGTech Brasil",
           badge: "Success Case",
           description: "A digital ecosystem for IT service delivery. Focused on extreme performance and a clean interface.",
-          tags: ["React", "Node.js", "TypeScript", "Tailwind"],
-          repoUrl: "https://github.com/Joaokenehen/jg_tech",
-          servicesUrl: "/servicos"
         },
-        {
+        "estoque-raiz-wms": {
           title: "Estoque Raiz - WMS",
           badge: "Enterprise Architecture",
           description: "Highly complex WMS system for agricultural input management. Uses distributed microservices architecture focusing on batch traceability, performance with Redis, and monitoring via Prometheus/Grafana.",
-          tags: ["Microservices", "TypeScript", "Docker", "DDD", "Redis", "PostgreSQL"],
-          repoUrl: "https://github.com/Joaokenehen/Estoque_Raiz", 
-          servicesUrl: "#", 
-          date: "2024-05-20"
         },
-        {
+        "estoque-raiz-webapp": {
           title: "Estoque Raiz - Web App",
           badge: "Frontend Specialist",
           description: "Modern WMS system interface for agricultural input management. Focused on dynamic dashboards, real-time inventory control, and high visual fidelity with React and Tailwind.",
-          tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
-          repoUrl: "https://github.com/Joaokenehen/EstoqueRaizWeb", 
-          servicesUrl: "#",
-          date: "2024-05-25"
         },
-        {
+        "petworking": {
           title: "PetWorking",
           badge: "Full Stack Ecosystem",
           description: "Complete management system for Pet Shops that combines e-commerce and service scheduling. Includes inventory control, pet profiles, JWT authentication, and a robust architecture with Node.js, React, and MySQL.",
-          tags: ["React", "Node.js", "MySQL", "Docker", "TypeScript", "Sequelize"],
-          repoUrl: "https://github.com/LucasSC98/Pet-Working",
-          servicesUrl: "#", 
-          date: "2024-06-15"
         },
-        {
+        "cardapio-do-paje": {
           title: "Cardápio do Pajé",
           badge: "Full Stack & Mobile",
           description: "Digital menu system composed of a robust REST API and a mobile application for real-time orders. Developed to optimize service in gastronomic establishments.",
-          tags: ["React Native", "Node.js", "Express", "Expo"],
-          repoUrl: "https://github.com/Joaokenehen/cardapio-do-paje",
-          servicesUrl: "#", 
-          date: "2024-02-15"
         },
-        {
+        "cardapio-jatos-mobile": {
           title: "Cardápio Jatos Mobile",
           badge: "Mobile Specialist",
           description: "An interactive air defense catalog that allows exploring military jets with technical details. Focused on fluid UX and high performance for mobile devices.",
-          tags: ["React Native", "Expo", "TypeScript", "Lucide React"],
-          repoUrl: "https://github.com/Joaokenehen/cardapio-jatos-mobile",
-          servicesUrl: "#", 
-          date: "2024-03-10"
         },
-        {
+        "secure-auth-manager": {
           title: "Secure Auth & File Manager",
           badge: "Security & Backend",
           description: "Full-stack system focused on security, implementing Role-Based Access Control (RBAC), robust authentication, and modular file upload management.",
-          tags: ["Node.js", "Express", "RBAC", "JWT", "Multer"],
-          repoUrl: "https://github.com/Joaokenehen/atividade5_tpi4",
-          servicesUrl: "#",
-          date: "2024-04-05"
-        }
-      ]
+        },
+        "simulador-financeiro": {
+          title: "Financial Simulator",
+          badge: "Gamification",
+          description: "An interactive financial education game with a dilemma and ranking system. Focused on user engagement and developed with a full stack (React and Node.js).",
+        },
+      }
     },
     contact: {
       title: "LET'S",

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -9,13 +9,13 @@ export const Header = () => {
   const [isScrollingFromClick, setIsScrollingFromClick] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: t('header.contact'), mobileName: t('header.contact'), href: '#contact' },
     { name: t('header.about'), mobileName: t('header.about'), href: '#about' },
-    { name: t('header.techs'), mobileName: t('header.techs'), href: '#tech' }, 
+    { name: t('header.techs'), mobileName: t('header.techs'), href: '#tech' },
     { name: t('header.projects'), mobileName: t('header.projects'), href: '#projects' },
-    { name: t('header.email'), mobileName: t('header.email'), href: '#email'}
-  ];
+    { name: t('header.email'), mobileName: t('header.email'), href: '#email' }
+  ], [t]);
 
   const handleNavLinkClick = () => {
     setIsScrollingFromClick(true);
