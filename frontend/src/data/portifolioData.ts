@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaWhatsapp, FaJava } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaJs, FaGithub, FaLinkedin, FaJava } from 'react-icons/fa';
 import { SiTypescript, SiVite, SiC, SiMysql, SiSequelize, SiGit, SiNpm, SiDocker, SiPostgresql, SiTailwindcss, SiHtml5, SiCss3, SiSpringboot, SiSwagger, SiChocolatey, SiRedis, SiExpo, SiVercel, SiGithub, SiPostman, SiNginx, SiExpress, SiWireshark, SiKalilinux, SiLinux } from 'react-icons/si';
 
 export const techStack = [
